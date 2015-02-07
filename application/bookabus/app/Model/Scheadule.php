@@ -1,22 +1,19 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Customer Model
+ * Scheadule Model
  *
- * @property Billing $Billing
+ * @property Bus $Bus
  * @property Booking $Booking
- * @property CreditInfo $CreditInfo
- * @property Loginfo $Loginfo
- * @property Reward $Reward
  */
-class Customer extends AppModel {
+class Scheadule extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'customer';
+	public $useTable = 'scheadule';
 
 /**
  * Validation rules
@@ -24,7 +21,17 @@ class Customer extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'fname' => array(
+		'bus_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'destination' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -34,7 +41,7 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'lname' => array(
+		'station' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -44,9 +51,9 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
+		'departure' => array(
+			'time' => array(
+				'rule' => array('time'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -54,9 +61,9 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'phone' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+		'ETA' => array(
+			'time' => array(
+				'rule' => array('time'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -64,7 +71,7 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'birthday' => array(
+		'date' => array(
 			'date' => array(
 				'rule' => array('date'),
 				//'message' => 'Your custom message here',
@@ -74,19 +81,9 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'valid' => array(
+		'trip_status' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'register_date' => array(
-			'date' => array(
-				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -99,66 +96,29 @@ class Customer extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
+		'Bus' => array(
+			'className' => 'Bus',
+			'foreignKey' => 'bus_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
+/**
  * hasMany associations
  *
  * @var array
  */
 	public $hasMany = array(
-		'Billing' => array(
-			'className' => 'Billing',
-			'foreignKey' => 'customer_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Booking' => array(
 			'className' => 'Booking',
-			'foreignKey' => 'customer_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'CreditInfo' => array(
-			'className' => 'CreditInfo',
-			'foreignKey' => 'customer_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Loginfo' => array(
-			'className' => 'Loginfo',
-			'foreignKey' => 'customer_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Reward' => array(
-			'className' => 'Reward',
-			'foreignKey' => 'customer_id',
+			'foreignKey' => 'scheadule_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

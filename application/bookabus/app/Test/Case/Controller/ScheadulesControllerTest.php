@@ -1,0 +1,74 @@
+<?php
+App::uses('ScheadulesController', 'Controller');
+
+/**
+ * ScheadulesController Test Case
+ *
+ */
+class ScheadulesControllerTest extends ControllerTestCase {
+
+/**
+ * Fixtures
+ *
+ * @var array
+ */
+	public $fixtures = array(
+		'app.scheadule',
+		'app.bus',
+		'app.booking',
+		'app.customer',
+		'app.billing',
+		'app.invoice',
+		'app.employee',
+		'app.credit_info',
+		'app.loginfo',
+		'app.reward',
+		'app.seat'
+	);
+
+/**
+ * testIndex method
+ *
+ * @return void
+ */
+	public function testIndex() {
+		$this->markTestIncomplete('testIndex not implemented.');
+	}
+
+/**
+ * testView method
+ *
+ * @return void
+ */
+	public function testView() {
+		$this->markTestIncomplete('testView not implemented.');
+	}
+
+/**
+ * testAdd method
+ *
+ * @return void
+ */
+	public function testAdd() {
+		$this->markTestIncomplete('testAdd not implemented.');
+	}
+
+/**
+ * testEdit method
+ *
+ * @return void
+ */
+	public function testEdit() {
+		$this->markTestIncomplete('testEdit not implemented.');
+	}
+
+/**
+ * testDelete method
+ *
+ * @return void
+ */
+	public function testDelete() {
+		$this->markTestIncomplete('testDelete not implemented.');
+	}
+
+}
