@@ -1,6 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
+<<<<<<< HEAD
  * Customer Model
  *
  * @property Billing $Billing
@@ -172,3 +173,42 @@ class Customer extends AppModel {
 	);
 
 }
+=======
+* Customer Model
+*
+*/
+class Customer extends AppModel {
+
+/**
+* Use table
+*
+* @var mixed False or table name
+*/
+public $useTable = 'customer';
+
+/**
+* Display field
+*
+* @var string
+*/
+public $displayField = 'id';
+
+/**
+* Validation rules
+*
+* @var array
+*/
+public $validate = array(
+'id' => array(
+'numeric' => array(
+'rule' => array('numeric'),
+//'message' => 'Your custom message here',
+//'allowEmpty' => false,
+//'required' => false,
+//'last' => false, // Stop validation after this rule
+//'on' => 'create', // Limit validation to 'create' or 'update' operations
+),
+),
+);
+}
+>>>>>>> 3e4a3d32587449f40aa1e1c2da6d0469e701c3ef
