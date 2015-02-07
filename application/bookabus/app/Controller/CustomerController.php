@@ -11,10 +11,10 @@ class CustomerController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
 
-        $post = $this->Post->findById($id);
-        if (!$post) {
+        $customer = $this->Customer->findById($id);
+        if (!$customer) {
             throw new NotFoundException(__('Invalid post'));
         }
-        $this->set('post', $post);
+        $this->set('customer', $customer);
     }
 }
