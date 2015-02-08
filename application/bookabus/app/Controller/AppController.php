@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    /**
+    
     public $components = array(
         'Session',
         'Auth' => array(
@@ -57,9 +57,8 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
-        //$this->Auth->allow('index', 'view');   
+        $this->Auth->allow();   
         $this->Auth->loginAction = array('controller' => 'loginfos', 'action' => 'login');
     }
-     * *
-     */
+     
 }

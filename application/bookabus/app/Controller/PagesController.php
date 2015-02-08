@@ -74,4 +74,13 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+        /** 
+         * Over ride the the before filter.   
+         * Allowing the static pages to not have a login  
+         */
+        
+        public function beforeFilter() {
+            parent::beforeFilter();
+            $this->Auth->allow('*');
+        }
 }
