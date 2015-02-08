@@ -28,7 +28,7 @@ class Customer extends AppModel {
 		'fname' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
+				'message' => 'First Name',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -75,6 +75,17 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+                'password' => array(
+                            'notEmpty' => array(
+                                    'rule' => array('notEmpty'),
+                                    //'message' => 'Your custom message here',
+                                    //'allowEmpty' => false,
+                                    //'required' => false,
+                                    //'last' => false, // Stop validation after this rule
+                                    //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                            ),
+                    ),
+            /*
 		'valid' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -94,7 +105,7 @@ class Customer extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		), */
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
