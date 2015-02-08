@@ -57,6 +57,7 @@ class AppController extends Controller {
     }
 
     public function beforeFilter() {
+        $this->Auth->allow("display");
         $this->Auth->loginAction = array('controller' => 'loginfos', 'action' => 'login');
     }
      
