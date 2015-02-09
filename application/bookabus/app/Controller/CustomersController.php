@@ -53,6 +53,8 @@ class CustomersController extends AppController {
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'));
+                               //$new = $this->Customer->save($this->request->data
+                               // var_dump($new);
 			}
 		}
 	}

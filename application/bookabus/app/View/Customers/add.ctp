@@ -16,10 +16,10 @@
                     'minYear' => date('Y') - 70,
                     'maxYear' => date('Y') - 18,
                     ));                 
-                //echo $this->Form->input('loginfo.0.customer_id');
-                //echo $this->Form->input('loginfo.0.password');
-		//echo $this->Form->input('valid');
-		//echo $this->Form->input('register_date');
+                echo $this->Form->input('loginfo.0.customer_id');
+                echo $this->Form->input('loginfo.0.password');
+		echo $this->Form->input('valid');
+		echo $this->Form->input('register_date');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

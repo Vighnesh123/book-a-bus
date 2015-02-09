@@ -109,7 +109,7 @@ class LoginfosController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
             // Allow users to register and logout.
-            $this->Auth->allow('add', 'logout');
+            $this->Auth->allow('logout','login');
         }
 
         public function login() {
