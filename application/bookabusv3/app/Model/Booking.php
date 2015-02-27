@@ -98,7 +98,7 @@ class Booking extends AppModel {
 		),
 		'Bus' => array(
 			'className' => 'Bus',
-			'foreignKey' => 'seat_bus_id',
+			'foreignKey' => 'bus_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
