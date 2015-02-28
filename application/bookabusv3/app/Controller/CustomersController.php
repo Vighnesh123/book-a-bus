@@ -38,6 +38,7 @@ class CustomersController extends AppController {
 		}
 		$options = array('conditions' => array('Customer.' . $this->Customer->primaryKey => $id));
 		$this->set('customer', $this->Customer->find('first', $options));
+                echo $this->html->charset('ISO-8859-1');
 	}
 
 /**

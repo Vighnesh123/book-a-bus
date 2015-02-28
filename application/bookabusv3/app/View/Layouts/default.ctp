@@ -14,8 +14,9 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
+$cakeDescription = __d('bookabus', 'Book-A-Bus');
+$cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,8 +29,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-
+		//echo $this->Html->css('cake.generic');
+                echo $this->Html->css(array('bootstrap.min','bootstrap-responsive.min'));
+                //echo $this->Html->css('bootstrap-responsive.min');
+                echo $this->Html->script('bootstrap.min');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
