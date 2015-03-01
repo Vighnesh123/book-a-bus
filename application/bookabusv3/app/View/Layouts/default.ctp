@@ -15,7 +15,7 @@
  */
 
 $cakeDescription = __d('bookabus', 'Book-A-Bus');
-$cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
+//$cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
 
 ?>
 <!DOCTYPE html>
@@ -28,9 +28,10 @@ $cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
 	</title>
 	<?php
 		echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'));
+                echo $this->Html->meta('favicon.ico','img/favicon.ico',array('type' => 'icon'));
 
 		//echo $this->Html->css('cake.generic');
-                echo $this->Html->css(array('bootstrap.min','bootstrap-responsive.min','styles'));
+                echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min','styles'));
                 echo $this->Html->script(array('jquery','bootstrap.min','scripts'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,19 +39,28 @@ $cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
 	?>
 </head>
 <body>
-	<div id="container">
+	<div id="master-container">
 		<div id="header">
-                    <div class="navbar navbar-fixed-top">
-                            <div class="navbar-inner nav-font ">
-                            <a class="brand" href="#"><?php echo $this->Html->image('navbar/logo.jpg'); ?></a>
-                            <ul class="nav pull-right">
-                                <li><a href="home"><?php echo $this->Html->image('navbar/unselected_nav/u-home.jpg', array('id' => 'home', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
-                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-browse.jpg', array('id' => 'browse', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
-                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-contact.jpg', array('id' => 'contact', 'alt' => 'contact', 'class'=>'navImg')); ?></a></li>
-                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-register.jpg', array('id' => 'register', 'alt' => 'register', 'class'=>'navImg')); ?></a></li>
-                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-login.jpg', array('id' => 'login','alt' => 'login', 'class'=>'navImg')); ?></a></li>
-                            </ul>
-                            </div> 
+                    <div class="row">
+                        <div class="navbar navbar-fixed-top nav-bg">
+                            <div class="container">
+                                <div class="navbar-brand"><a><?php echo $this->Html->image('navbar/logo.jpg'); ?></a></div>
+                                <div class="navbar-header">
+                                    <button class='navbar-toggle' data-toggle='collapse' data-target='.navHeaderCollapse'>
+                                        <span class="glyphicon glyphicon-list"></span>
+                                    </button>
+                                </div>
+                                <div class="collapse navbar-collapse navHeaderCollapse">
+                                    <ul class='nav navbar-nav navbar-right'>
+                                        <li><a href="home"><?php echo $this->Html->image('navbar/unselected_nav/u-home.jpg', array('id' => 'home', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-browse.jpg', array('id' => 'browse', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-contact.jpg', array('id' => 'contact', 'alt' => 'contact', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-register.jpg', array('id' => 'register', 'alt' => 'register', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-login.jpg', array('id' => 'login','alt' => 'login', 'class'=>'navImg')); ?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 		</div>
 		<div id="content">
@@ -69,6 +79,6 @@ $cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
 			</p>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
