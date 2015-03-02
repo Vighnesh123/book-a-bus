@@ -14,8 +14,9 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
+$cakeDescription = __d('bookabus', 'Book-A-Bus');
+$cakeVersion = __d('bookabus', 'CakePHP %s', Configure::version());
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,10 +27,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<?php echo $this->fetch('title'); ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
+		echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'));
 
-		echo $this->Html->css('cake.generic');
-
+		//echo $this->Html->css('cake.generic');
+                echo $this->Html->css(array('bootstrap.min','bootstrap-responsive.min','styles'));
+                echo $this->Html->script(array('jquery','bootstrap.min','scripts'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -38,23 +40,32 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+                    <div class="navbar navbar-fixed-top">
+                            <div class="navbar-inner nav-font ">
+                            <a class="brand" href="#"><?php echo $this->Html->image('navbar/logo.jpg'); ?></a>
+                            <ul class="nav pull-right">
+                                <li><a href="home"><?php echo $this->Html->image('navbar/unselected_nav/u-home.jpg', array('id' => 'home', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
+                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-browse.jpg', array('id' => 'browse', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
+                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-contact.jpg', array('id' => 'contact', 'alt' => 'contact', 'class'=>'navImg')); ?></a></li>
+                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-register.jpg', array('id' => 'register', 'alt' => 'register', 'class'=>'navImg')); ?></a></li>
+                                <li><a href="#"><?php echo $this->Html->image('navbar/unselected_nav/u-login.jpg', array('id' => 'login','alt' => 'login', 'class'=>'navImg')); ?></a></li>
+                            </ul>
+                            </div> 
+                    </div>
 		</div>
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
+			<?php /* echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
+				); */
 			?>
 			<p>
-				<?php echo $cakeVersion; ?>
+				<?php // echo $cakeVersion; ?>
 			</p>
 		</div>
 	</div>

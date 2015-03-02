@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2015 at 02:49 AM
+-- Generation Time: Mar 02, 2015 at 09:43 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -35,6 +35,15 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `booking_status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `customer_id`, `schedule_id`, `seat_code`, `seat_bus_id`, `booking_status`) VALUES
+(1, 1, 1, 'AA01', 1, ''),
+(2, 2, 2, 'AA02', 2, ''),
+(3, 3, 3, 'AA03', 3, '');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +58,15 @@ CREATE TABLE IF NOT EXISTS `bus` (
   `condition` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `bus`
+--
+
+INSERT INTO `bus` (`id`, `plate_no`, `seating_cap`, `type`, `condition`) VALUES
+(1, 'AAA1234', 45, 'normal', 'normal'),
+(2, 'ABC1234', 45, 'normal', 'normal'),
+(3, 'LTO1234', 45, 'normal', 'normal');
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +79,15 @@ CREATE TABLE IF NOT EXISTS `credit_info` (
   `credit_provider` varchar(45) NOT NULL,
   `expiration_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `credit_info`
+--
+
+INSERT INTO `credit_info` (`customer_id`, `card_number`, `credit_provider`, `expiration_date`) VALUES
+(1, '5679-5234-4732-9999', 'BDO', '2015-12-18'),
+(2, '4321-5678-9012-1234', 'BPI', '2015-12-25'),
+(3, '4000-1234-5678-9010', 'ChinaBank', '2015-12-25');
 
 -- --------------------------------------------------------
 
@@ -81,6 +108,15 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `fname`, `lname`, `MI`, `email`, `phone`, `birthday`, `valid`, `register_date`, `password`) VALUES
+(1, 'Bryan', 'Aclan', 'B', 'bmaclan@apc.edu.ph', '09271234567', '2015-08-03', '', '2015-03-02', ''),
+(2, 'Virgil', 'Cruz', 'I', 'vicruz@apc.edu.ph', '09151234567', '2015-06-05', '', '2015-03-02', ''),
+(3, 'Marc', 'Alo', 'R', 'mgalo@apc.edu.ph', '09171234567', '2015-04-08', '', '2015-03-02', '');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +131,15 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `password` varchar(45) NOT NULL,
   `permission` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `fname`, `lname`, `username`, `password`, `permission`) VALUES
+(1, 'Jacky', 'Chan', 'jlchan', 'jackychan', ''),
+(2, 'Aldrin', 'Esteban', 'aresteban', 'chronocross', ''),
+(3, 'Paolo', 'Mayo', 'pqmayo', 'riotgear', '');
 
 -- --------------------------------------------------------
 
@@ -111,6 +156,15 @@ CREATE TABLE IF NOT EXISTS `reward` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `reward`
+--
+
+INSERT INTO `reward` (`id`, `customer_id`, `point`, `action`, `description`, `date`) VALUES
+(1, 1, 100, '', '', '2015-03-02'),
+(2, 2, 200, '', '', '2015-03-02'),
+(3, 3, 300, '', '', '2015-03-02');
+
 -- --------------------------------------------------------
 
 --
@@ -125,9 +179,19 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   `departure` time NOT NULL,
   `ETA` time NOT NULL,
   `date` date NOT NULL,
-  `fare` decimal(4,2) NOT NULL,
+  `fare` decimal(7,2) NOT NULL,
   `trip_status` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `bus_id`, `destination`, `station`, `departure`, `ETA`, `date`, `fare`, `trip_status`) VALUES
+(1, 1, 'Baguio', 'Buendia', '07:30:00', '14:00:00', '2015-03-04', '800.95', 'OTW'),
+(2, 2, 'Batangas', 'Buendia', '04:00:00', '12:00:00', '2015-03-07', '750.00', 'OTW'),
+(3, 3, 'Tarlac', 'Pasay', '08:00:00', '15:00:00', '2015-03-09', '900.00', 'OTW'),
+(4, 1, 'Puso ni Faye', 'Malibay', '10:00:00', '12:00:00', '2015-03-05', '8.00', 'OTW');
 
 -- --------------------------------------------------------
 
@@ -139,6 +203,20 @@ CREATE TABLE IF NOT EXISTS `seat` (
   `code` varchar(4) NOT NULL,
   `bus_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`code`, `bus_id`) VALUES
+('AA01', 1),
+('AA02', 1),
+('AA03', 1),
+('AA01', 2),
+('AA02', 2),
+('AA01', 3),
+('AA02', 3),
+('AA03', 3);
 
 --
 -- Indexes for dumped tables
@@ -172,7 +250,7 @@ ALTER TABLE `customer`
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `fname` (`fname`);
 
 --
 -- Indexes for table `reward`

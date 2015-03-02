@@ -1,0 +1,24 @@
+
+.nav-font{
+    background-color: #0054a6;
+    background-image: none;
+}
+
+.navbar .nav > li > a{
+    padding: 0px;  
+}
+
+.navbar .brand{
+    padding: 0px;
+    padding-left: 20px;
+}
+
+.navbar-inner{
+    border: none;
+}
+
+body{
+    background-image: url(../img/bg/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
