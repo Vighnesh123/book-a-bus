@@ -37,4 +37,40 @@ $(document).ready(function(){
     function (){
         $('#login').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-login.jpg');
     });
+    
+    $('#register_button').hover(function (){
+        $('#register_button').attr('src', '/bookabusv3/img/buttons/reg-hover.png');
+    },
+    function (){
+        $('#register_button').attr('src', '/bookabusv3/img/buttons/reg.png');
+    });
+    
+    $('#login_button').hover(function (){
+        $('#login_button').attr('src', '/bookabusv3/img/buttons/login-hover.png');
+    },
+    function (){
+        $('#login_button').attr('src', '/bookabusv3/img/buttons/login.png');
+    });
+    
+    $('#luzon').hover(function (){
+        $('#luzon').attr('src', '/bookabusv3/img/text-img/luzon-hover.png');
+    },
+    function (){
+        $('#luzon').attr('src', '/bookabusv3/img/text-img/luzon.png');
+    });
+    
+    $('#visayas').hover(function (){
+        $('#visayas').attr('src', '/bookabusv3/img/text-img/visayas-hover.png');
+    },
+    function (){
+        $('#visayas').attr('src', '/bookabusv3/img/text-img/visayas.png');
+    });
+    
+    $('#mindanao').hover(function (){
+        $('#mindanao').attr('src', '/bookabusv3/img/text-img/mindanao-hover.png');
+    },
+    function (){
+        $('#mindanao').attr('src', '/bookabusv3/img/text-img/mindanao.png');
+    });
+    
 });

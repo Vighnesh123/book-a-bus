@@ -105,4 +105,9 @@ class SchedulesController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+        
+        public function beforeFilter() {
+            parent::beforeFilter();
+            $this->Auth->allow('index');
+    }
 }

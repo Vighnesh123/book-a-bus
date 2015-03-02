@@ -16,7 +16,9 @@
                         'label' => false,
                         'class' => 'form-control',
                         'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
-                    ) ));
+                    ),
+                    'action'=>'index'
+                    ));
                     
                     echo $this->Form->input('station',array(
                         'type'=>'text', 
@@ -37,6 +39,9 @@
                         'placeholder' => 'Village, City or Region',
                         'required' => false,
                         'after' => '<span class="input-group-addon glyphicon glyphicon-map-marker" id="basic-addon1"></span></div>'));
+                    echo "<center>";
+                    echo $this->Form->end(array('label'=>'Go','class'=>'btn btn-success','escape'=>false));
+                    echo "</center>";
                     ?>
                 </div>
                 

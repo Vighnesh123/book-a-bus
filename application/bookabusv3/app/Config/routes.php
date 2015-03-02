@@ -30,9 +30,9 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
         Router::connect('/home', array('controller' => 'pages', 'action' => 'display', 'webpage'));
-        //Router::connect('/login', array('controller' => 'Loginfos', 'action' =>  'login'));
-        //Router::connect('/register', array('controller' => 'Customers', 'action' =>  'add'));
-        //Router::connect('/schedules', array('controller' => 'Scheadules', 'action' =>  'index'));
+        Router::connect('/login', array('controller' => 'Customers', 'action' =>  'login'));
+        Router::connect('/browse_cities', array('controller' => 'pages', 'action' =>  'browse_cities'));
+        Router::connect('/contact', array('controller' => 'pages', 'action' =>  'contact'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

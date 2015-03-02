@@ -73,4 +73,19 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+        
+        public function beforeFilter() {
+            parent::beforeFilter();
+            // Allow users to register and logout.
+            $this->Auth->allow('browse_cities', 'contact');
+        }
+        
+        public function browse_cities(){
+            
+        }
+        
+        public function contact(){
+            
+        }
+        
 }
