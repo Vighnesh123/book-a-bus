@@ -15,7 +15,7 @@ USE `bookabus` ;
 -- Table `bookabus`.`customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`customer` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
   `MI` VARCHAR(45) NULL,
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`bus`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`bus` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `plate_no` VARCHAR(7) NOT NULL,
   `seating_cap` INT NOT NULL,
   `type` VARCHAR(45) NOT NULL,
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`scheadule`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`scheadule` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `bus_id` INT NOT NULL,
   `destination` VARCHAR(45) NOT NULL,
   `station` VARCHAR(45) NOT NULL,
@@ -101,7 +101,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`booking`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`booking` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `scheadule_id` INT NOT NULL,
   `customer_id` INT NOT NULL,
   `booking_status` VARCHAR(10) NOT NULL,
@@ -125,7 +125,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`employee` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(45) NOT NULL,
   `lname` VARCHAR(45) NOT NULL,
   `role` VARCHAR(45) NOT NULL,
@@ -139,7 +139,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`billing`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`billing` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `booking_id` INT NOT NULL,
   `status` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`),
@@ -209,7 +209,7 @@ ENGINE = InnoDB;
 -- Table `bookabus`.`reward`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookabus`.`reward` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `customer_id` INT NOT NULL,
   `point` INT NOT NULL,
   `action` VARCHAR(10) NOT NULL,
