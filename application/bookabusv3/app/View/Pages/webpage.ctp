@@ -17,27 +17,28 @@
                         'class' => 'form-control',
                         'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
                     ),
-                    'action'=>'index'
+                    'action'=>'show_sched'
                     ));
                     
                     echo $this->Form->input('station',array(
                         'type'=>'text', 
                         'placeholder'=>'I am coming from ...', 
-                        'required'=>false,
+                        'required'=>'required',
                         'before'=>'<div class="input-group-lg">',
                         'after' =>'</div>'));
                     
                     echo $this->Form->input('my_date',array(
+                        'id'=>'date-input',
                         'type'=>'text', 
                         'placeholder'=>'Date', 
-                        'required'=>false,
+                        'required'=>'required',
                         'before'=>'<div class="input-group-lg">',
                         'after' =>'</div>'));
                     
                     echo $this->Form->input('destination',array(
                         'before'=>'<div class="input-group input-group-lg">',
                         'placeholder' => 'Village, City or Region',
-                        'required' => false,
+                        'required' => 'required',
                         'after' => '<span class="input-group-addon glyphicon glyphicon-map-marker" id="basic-addon1"></span></div>'));
                     echo "<center>";
                     echo $this->Form->end(array('label'=>'Go','class'=>'btn btn-success','escape'=>false));

@@ -106,8 +106,47 @@ class SchedulesController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
         
+        public function show_sched(){
+            $station = $this->request->data['Schedule']['station'];
+            $date = date('Y-m-d',strtotime($this->request->data['Schedule']['my_date']));
+            $destination = $this->request->data['Schedule']['destination'];
+            
+            $result = $this->Schedule->find('all', array (
+                'conditions' => array(
+                    'Schedule.station =' => $station,
+                    'Schedule.date =' => $date,
+                    'Schedule.destination =' => $destination
+                    ),
+                'fields'=>array(
+                    'Schedule.destination',
+                    'Schedule.station',
+                    'Schedule.departure',
+                    'Schedule.ETA',
+                    'Schedule.date'
+                ),
+                'recursive'=>-1
+            ));
+            
+            $result2 = $this->Schedule->find('all', array (
+                'conditions' => array(
+                    'Schedule.destination =' => $destination
+                    ),
+                'fields'=>array(
+                    'Schedule.destination',
+                    'Schedule.station',
+                    'Schedule.departure',
+                    'Schedule.ETA',
+                    'Schedule.date'
+                ),
+                'recursive'=>-1
+            ));
+            
+            $this->set('schedules', $result);
+            $this->set('schedules2', $result2);
+        }
+        
         public function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow('index');
+            $this->Auth->allow('index', 'show_sched');
     }
 }

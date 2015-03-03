@@ -55,3 +55,12 @@ body{
 .contact_group{
     margin-top: 10%;
 }
+
+.data-group{
+    background-color: #F7F7F7;
+    margin-top: 2.5%;
+}
+
+.ui-datepicker { 
+    z-index: 1151 !important;;
+}

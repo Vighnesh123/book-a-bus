@@ -73,4 +73,7 @@ $(document).ready(function(){
         $('#mindanao').attr('src', '/bookabusv3/img/text-img/mindanao.png');
     });
     
+    
+    $("#date-input").datepicker();
+    $("#birthday-picker").datepicker({ dateFormat: 'y-m-d' });
 });
