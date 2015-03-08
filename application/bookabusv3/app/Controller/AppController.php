@@ -35,8 +35,8 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'pages',
-                'action' => 'contact'
+                'controller' => 'Customers',
+                'action' => 'dashboard'
             ),
             'logoutRedirect' => array(
                 'controller' => 'pages',
@@ -63,7 +63,15 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->allow("display", "login", "logout");
+        $this->Auth->deny("delete");
         $this->Auth->loginAction = array('controller' => 'customers', 'action' => 'login');
+        
+        $this->set('logged_in', $this->Auth->user());
+        if ($this->Auth->user()){
+            $this->layout = 'logged_user';
+        }else {
+            $this->layout = 'default';
+        }
     }
 
 }
