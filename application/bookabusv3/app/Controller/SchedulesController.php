@@ -126,7 +126,6 @@ class SchedulesController extends AppController {
                 ),
                 'recursive'=>-1
             ));
-            
             $result2 = $this->Schedule->find('all', array (
                 'conditions' => array(
                     'Schedule.destination =' => $destination
