@@ -1,3 +1,7 @@
+@font-face {
+    font-family: gothamRounded;
+    src: url(../fonts/gotham-rounded-medium.otf);
+}
 
 .nav-bg{
     background-color: #0054a6;
@@ -59,8 +63,39 @@ body{
 .data-group{
     background-color: #F7F7F7;
     margin-top: 2.5%;
+    border-radius: 12px;
 }
 
 .ui-datepicker { 
     z-index: 1151 !important;;
+}
+
+.info-header{
+    font-family: gothamRounded;
+    color:#ead24a;
+}
+
+.info-body{
+    border-style: solid;
+    border-color: white;
+    border-width: .5px;
+    border-radius: 12px;
+    
+    color: #c4b874;
+    font-size: large;
+}
+
+.info-body a{
+    color: #e4e1e1;
+    font-size: medium;
+    
+}
+
+.body-col-1{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.custom-form{
+    
 }

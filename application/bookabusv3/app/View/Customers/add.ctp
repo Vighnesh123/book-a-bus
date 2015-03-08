@@ -4,8 +4,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 data-group">
-            <?php echo $this->Form->create('Customer', array(
+        <div class="col-md-12">
+            <div class="col-md-offset-3 col-md-6 data-group">
+                <div class="col-md-offset-1 col-md-10">
+                    <br>
+                <?php echo $this->Form->create(array(
                     'inputDefaults' => array(
                         'div' => 'form-group',
                         'label' => false,
@@ -14,7 +17,7 @@
                     )
                 )); ?>
                     <fieldset>
-                            <legend><?php echo __('Add Customer'); ?></legend>
+                            <legend><?php echo __('Register'); ?></legend>
                     <?php
                             echo $this->Form->input('fname', array(
                                     'type'=>'text', 
@@ -74,8 +77,10 @@
                             ));
                     ?>
                     </fieldset>
-            <center><?php echo $this->Form->submit('Register !', array ('class'=>'btn btn-info')); ?></center>
-            <?php echo $this->Form->end(); ?>
+                    <center><?php echo $this->Form->submit('Register !', array ('class'=>'btn btn-info', 'style'=>'margin-bottom:10px')); ?></center>
+                    <?php echo $this->Form->end(); ?>
+            </div>
+            </div>  
         </div>
     </div>
 </div>

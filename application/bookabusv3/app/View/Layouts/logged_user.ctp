@@ -52,10 +52,10 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                                 </div>
                                 <div class="collapse navbar-collapse navHeaderCollapse">
                                     <ul class='nav navbar-nav navbar-right'>
-                                        <li><a href="/bookabusv3/home"><?php echo $this->Html->image('navbar/unselected_nav/u-home.jpg', array('id' => 'home', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="/bookabusv3/dashboard"><?php echo $this->Html->image('navbar/unselected_nav/u-dashboard.jpg', array('id' => 'dashboard', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
                                         <li><a href="/bookabusv3/browse_cities"><?php echo $this->Html->image('navbar/unselected_nav/u-browse.jpg', array('id' => 'browse', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
                                         <li><a href="/bookabusv3/contact"><?php echo $this->Html->image('navbar/unselected_nav/u-contact.jpg', array('id' => 'contact', 'alt' => 'contact', 'class'=>'navImg')); ?></a></li>
-                                        <li><a href="/bookabusv3/login"><?php echo $this->Html->image('navbar/unselected_nav/u-login.jpg', array('id' => 'login','alt' => 'login', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="/bookabusv3/logout"><?php echo $this->Html->image('navbar/unselected_nav/u-logout.jpg', array('id' => 'logout','alt' => 'login', 'class'=>'navImg')); ?></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -63,6 +63,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                     </div>
 		</div>
 		<div id="content">
+                        <?php //print_r($logged_in);?>
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>

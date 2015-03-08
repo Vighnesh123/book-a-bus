@@ -10,6 +10,20 @@ $(document).ready(function(){
         $('#home').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-home.jpg');
     });
     
+    $('#dashboard').hover(function (){
+        $('#dashboard').attr('src', '/bookabusv3/img/navbar/selected_nav/s-dashboard.jpg');
+    },
+    function (){
+        $('#dashboard').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-dashboard.jpg');
+    });
+    
+    $('#logout').hover(function (){
+        $('#logout').attr('src', '/bookabusv3/img/navbar/selected_nav/s-logout.jpg');
+    },
+    function (){
+        $('#logout').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-logout.jpg');
+    });
+    
     $('#browse').hover(function (){
         $('#browse').attr('src', '/bookabusv3/img/navbar/selected_nav/s-browse.jpg');
     },
@@ -72,8 +86,7 @@ $(document).ready(function(){
     function (){
         $('#mindanao').attr('src', '/bookabusv3/img/text-img/mindanao.png');
     });
-    
-    
+
     $("#date-input").datepicker();
     $("#birthday-picker").datepicker({ dateFormat: 'y-m-d' });
 });

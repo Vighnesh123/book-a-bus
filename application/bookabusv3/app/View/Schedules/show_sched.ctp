@@ -55,6 +55,7 @@
                         
                     </tr>
                     <?php endforeach;?>
+                    <?php // print_r($schedules2)?>
                 </tbody>
             </table>
         </div>
