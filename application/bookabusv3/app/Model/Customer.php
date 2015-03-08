@@ -120,6 +120,28 @@ class Customer extends AppModel {
                                 'message'=>'Please confirm password',
                         )
                 ),
+                'current_password'=>array(
+                    'checkPass' => array(
+                            'rule' => 'checkCurrentPassword',
+                            'message' => 'Wrong Password !'
+                    )
+                ),
+                'newpassword1'=>array(
+                    'matchPassword'=>array(
+                        'rule' => 'changePassMatcher',
+                        'message' => 'Password did not match'
+                    ),
+                    'notEmpty'=>array(
+                        'rule' => 'notEmpty',
+                        'message' => 'Please confirm password'
+                    )
+                ),
+                'newpassword2'=> array(
+                    'notEmpty'=>array(
+                        'rule' => 'notEmpty',
+                        'message' => 'Please confirm password'
+                    )
+                )
 	);
         
         public function matchPassword($data){
@@ -131,11 +153,39 @@ class Customer extends AppModel {
             }
         }
         
+        public function changePassMatcher($data){
+            if($data['newpassword1'] == $this->data['Customer']['newpassword2']){
+                return true;
+            }else{
+                $this->invalidate('newpassword1', 'Password did not match');
+                return false;
+            }
+        }
+        
+        
+        public function checkCurrentPassword($data){
+            $this->id = AuthComponent::user('id');
+            $password = $this->field('password');
+            if(isset($data['current_password'])){
+                if(AuthComponent::password($data['current_password']) == $password){
+                    return true;
+                }else {
+                    $this->invalidate('current_password', 'Password did not match');
+                    return false;
+                }
+                return true;
+            }
+        }
+
         public function beforeSave($options = array()) {
             parent::beforeSave($options);
             if(isset($this->data['Customer']['password'])){
                 $this->data['Customer']['password'] = AuthComponent::password($this->data['Customer']['password']);
             }
+            
+            if (isset($this->data['Customer']['newpassword1'])) {
+                $this->data['Customer']['password'] = AuthComponent::password($this->data['Customer']['newpassword1']);
+            } 
             return true;
         }
 
