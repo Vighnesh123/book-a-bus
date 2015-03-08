@@ -59,15 +59,6 @@
                                 'id'=>'birthday-picker',
                                 'placeholder' => 'Birthday'
                             ));
-                            echo $this->Form->input('valid', array(
-                                'type'=>'hidden',
-                                'value'=>'passanger'
-                            ));
-                            echo $this->Form->input('register_date', array(
-                                'type'=>'hidden',
-                                'placeholder'=>'Register_date',
-                                'value'=> date('Y-m-d H:m:s',time())
-                            ));
                             echo $this->Form->input('password', array(
                                 'placeholder' => 'password'
                             ));

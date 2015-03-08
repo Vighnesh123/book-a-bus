@@ -13,7 +13,7 @@ class CustomersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Email', 'Session');
 
 /**
  * index method
@@ -106,7 +106,7 @@ class CustomersController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
             // Allow users to register and logout.
-            $this->Auth->allow('add');
+            $this->Auth->allow('add','forgot');
         }
         
         public function login() {
@@ -128,17 +128,30 @@ class CustomersController extends AppController {
         
         public function changePass(){
             if($this->request->is('post')){
-                print_r($this->request->data);
+                //print_r($this->request->data);
                 if ($this->Customer->save($this->request->data)) {
                     $this->Session->setFlash('Password has been changed.');
                     $this->redirect(array('action' => 'dashboard'));
                 }else {
                     $this->Session->setFlash('Password was not changed.');
                 }
-            }else {
-                //$this->data = $this->Customer->findById($this->Auth->user('id'));
-                //echo "mashed";
-                //$this->Session->setFlash($this->data);
+            }
+        }
+        
+        public function forgot(){
+            if($this->request->is('post')){
+                if(!empty($this->request->data)){
+                    //print_r($this->request->data);
+                    $result = $this->Customer->find('first',array(
+                        'conditions'=>array('Customer.email' =>$this->request->data['Customer']['email']),
+                        'fields' => array(
+                            'Customer.email',
+                            'Customer.fname'
+                            ),
+                        'recursive'=>-1
+                    ));
+                    print_r($result);
+                }
             }
         }
 }
