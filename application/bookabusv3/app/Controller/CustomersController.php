@@ -115,8 +115,6 @@ class CustomersController extends AppController {
                     return $this->redirect($this->Auth->redirectUrl());
                 }
                 $this->Session->setFlash(__('Invalid username or password, try again'));
-                //debug($this->Auth->login());
-                //print_r($this->request->data);
             }
         }
 
@@ -124,4 +122,23 @@ class CustomersController extends AppController {
             return $this->redirect($this->Auth->logout());
         }
         
+        public function dashboard(){
+            
+        }
+        
+        public function changePass(){
+            if($this->request->is('post')){
+                print_r($this->request->data);
+                if ($this->Customer->save($this->request->data)) {
+                    $this->Session->setFlash('Password has been changed.');
+                    $this->redirect(array('action' => 'dashboard'));
+                }else {
+                    $this->Session->setFlash('Password was not changed.');
+                }
+            }else {
+                //$this->data = $this->Customer->findById($this->Auth->user('id'));
+                //echo "mashed";
+                //$this->Session->setFlash($this->data);
+            }
+        }
 }
