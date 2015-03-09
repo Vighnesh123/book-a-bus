@@ -76,26 +76,6 @@ class Customer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'valid' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'register_date' => array(
-			'date' => array(
-				'rule' => array('datetime'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'password' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -179,10 +159,13 @@ class Customer extends AppModel {
 
         public function beforeSave($options = array()) {
             parent::beforeSave($options);
+            // Used on Customer Registration
             if(isset($this->data['Customer']['password'])){
                 $this->data['Customer']['password'] = AuthComponent::password($this->data['Customer']['password']);
+                $this->data['Customer']['valid'] = 'passenger';
+                $this->data['Customer']['register_date'] = date('Y-m-d H:m:s',time());
             }
-            
+            // Used on User changig password
             if (isset($this->data['Customer']['newpassword1'])) {
                 $this->data['Customer']['password'] = AuthComponent::password($this->data['Customer']['newpassword1']);
             } 
