@@ -96,6 +96,11 @@ body{
     margin-bottom: 12px;
 }
 
+.forgot{
+    font-family: gothamRounded;
+    font-size: medium;
+}
+
 .custom-form{
     
 }
