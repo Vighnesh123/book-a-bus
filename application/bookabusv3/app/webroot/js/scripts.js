@@ -31,6 +31,13 @@ $(document).ready(function(){
         $('#browse').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-browse.jpg');
     });
     
+    $('#schedule').hover(function (){
+        $('#schedule').attr('src', '/bookabusv3/img/navbar/selected_nav/s-sched.jpg');
+    },
+    function (){
+        $('#schedule').attr('src', '/bookabusv3/img/navbar/unselected_nav/u-sched.jpg');
+    });
+    
     $('#contact').hover(function (){
         $('#contact').attr('src', '/bookabusv3/img/navbar/selected_nav/s-contact.jpg');
     },
