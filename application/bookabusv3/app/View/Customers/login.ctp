@@ -32,6 +32,8 @@
                 
                 echo $this->Form->submit('buttons/login.png', array('id'=>'login_button','alt'=>'login'));
                 echo $this->Form->end();
+                
+                echo $this->Html->link('Forgot password ?', '/Customers/forgot', array('class'=>'forgot'));
                 ?>
                 
             </div>
