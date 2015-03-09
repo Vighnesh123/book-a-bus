@@ -13,7 +13,7 @@
                         <table>
                             <tr>
                                 <td style="width: 50%;">Full Name : </td>
-                                <td style="width: 50%;"> <?php echo $logged_in['fname']." ".$logged_in['lname']?> </td>
+                                <td style="width: 50%;"> <?php echo $logged_in['fname']." ".$logged_in['MI'].". ".$logged_in['lname']?> </td>
                             </tr>
                             <tr>
                                 <td style="width: 50%;">Email : </td>
@@ -24,8 +24,17 @@
                             echo $this->Html->link('Change Password', 'changepass');
                         ?>
                     </div>
-                    <div class="col-md-6">
-                        placeholder
+                    <div class="col-md-6 body-col-1">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 50%;">Phone Number : </td>
+                                <td style="width: 50%;"> <?php echo $logged_in['phone']?> </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50%;">Member Since : </td>
+                                <td style="width: 50%;"> <?php echo date('M-j-Y', strtotime( $logged_in['register_date'])); ?> </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
