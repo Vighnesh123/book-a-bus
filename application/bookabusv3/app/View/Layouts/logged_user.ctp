@@ -36,6 +36,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+                echo $this->Js->writeBuffer();
 	?>
 </head>
 <body>
