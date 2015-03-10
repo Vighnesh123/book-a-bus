@@ -32,6 +32,7 @@
         Router::connect('/home', array('controller' => 'pages', 'action' => 'display', 'webpage'));
         Router::connect('/login', array('controller' => 'Customers', 'action' =>  'login'));
         Router::connect('/logout', array('controller' => 'Customers', 'action' =>  'logout'));
+        Router::connect('/schedules', array('controller' => 'Schedules', 'action' =>  'logged_show_sched'));
         Router::connect('/dashboard', array('controller' => 'Customers', 'action' =>  'dashboard'));
         Router::connect('/browse_cities', array('controller' => 'pages', 'action' =>  'browse_cities'));
         Router::connect('/contact', array('controller' => 'pages', 'action' =>  'contact'));
