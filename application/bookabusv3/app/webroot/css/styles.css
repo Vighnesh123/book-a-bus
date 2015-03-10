@@ -76,11 +76,6 @@ body{
 }
 
 .info-body{
-    border-style: solid;
-    border-color: white;
-    border-width: .5px;
-    border-radius: 12px;
-    
     color: #c4b874;
     font-size: large;
 }
@@ -89,6 +84,40 @@ body{
     color: #e4e1e1;
     font-size: medium;
     
+}
+
+.bar1{
+    border-style: solid;
+    border-color: white;
+    border-width: .5px;
+    border-radius: 8px;
+}
+
+.bar2{
+   margin-top: 10px;
+   padding-left : 0px; 
+   padding-right : 0px; 
+   padding: 0px;
+}
+
+.sched-block{
+    //padding-left: 10px;
+    padding: 12px;
+    border-style: solid;
+    border-color: white;
+    border-width: .5px;
+    border-radius: 8px;
+}
+
+.bookings-block{
+    border-style: solid;
+    border-color: white;
+    border-width: .5px;
+    border-radius: 12px;
+}
+
+inline-search{
+    padding: 20px;
 }
 
 .body-col-1{
