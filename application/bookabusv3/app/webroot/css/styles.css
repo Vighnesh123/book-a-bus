@@ -133,3 +133,13 @@ inline-search{
 .custom-form{
     
 }
+
+#buslayout tr td{
+    margin: 4px;
+    border: solid;
+    border-width: 1px;
+}
+
+#buslayout .seatCheckBox{
+    margin: 5px;
+}
