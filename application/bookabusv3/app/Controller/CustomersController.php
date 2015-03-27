@@ -150,7 +150,6 @@ class CustomersController extends AppController {
                             ),
                         'recursive'=>-1
                     ));
-                    print_r($result);
                 }
             }
         }
