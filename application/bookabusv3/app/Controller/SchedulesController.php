@@ -139,39 +139,65 @@ class SchedulesController extends AppController {
                 ),
                 'recursive'=>-1
             ));
-            
             $this->set('schedules', $result);
             $this->set('schedules2', $result2);
         }
         
         public function logged_show_sched(){
-            if ($this->request->is('post')){
+            $stations = array();
+            $destinationDropdownValues = $this->Schedule->find('all',array(
+                'fields'=>array(
+                    'DISTINCT Schedule.station'
+                ),
+                'recursive' => -1
+            ));
+
+            foreach ($destinationDropdownValues as $value){
+                $stations[$value['Schedule']['station']] = $value['Schedule']['station'];
+            }
+            $this->set('stations',$stations);
+            //print_r($destinationDropdownValues);
+        }
+        
+        public function ajax_show_sched(){
+            if ($this->request->is('Ajax')){
                 if(!empty($this->request->data)){
+                    // Set retrived data into a variable
                     $station = $this->request->data['Schedule']['station'];
-                    $date = date('Y-m-d',strtotime($this->request->data['Schedule']['date']));
+                    if (!empty($this->request->data['Schedule']['date'])){
+                        $date = date('Y-m-d',strtotime($this->request->data['Schedule']['date']));
+                    }
                     $destination = $this->request->data['Schedule']['destination'];
-                    //print_r($this->request->data);
-                    $result = $this->Schedule->find('all',array(
-                        'conditions' => array(
-                        'Schedule.station =' => $station,
-                        'Schedule.date =' => $date,
-                        'Schedule.destination =' => $destination
-                        ),
-                        'fields'=>array(
+                    //echo $date;
+                    
+                    $conditions = array();
+                    $options = array( 
+                    'fields'=>array(
+                        'Schedule.id',
                         'Schedule.destination',
                         'Schedule.station',
                         'Schedule.departure',
                         'Schedule.ETA',
                         'Schedule.date'
-                    ),
-                    'recursive'=>-1
-                    ));
+                        ),
+                    'recursive'=>-1,
+                    'update'=>'#potato',
+                    'limit' => 10,
+                    'order'=> 'date desc'
+                    );
                     
-                    print_r($result);
-                }
+                    if(!empty($station)){$conditions['Schedule.station'] = $station;}
+                    if(!empty($date)){$conditions['Schedule.date'] = $date;}
+                    if(!empty($destination)){$conditions['Schedule.destination'] =  $destination;} 
+                    //$options['conditions'] = array('Schedule.station' => $station);
+                    $options['conditions'] = $conditions;
+                    //print_r($options);
+                    $this->Paginator->settings = $options;
+                    $result = $this->Paginator->paginate('Schedule');
             }
-            //$result = $this->request->find();
-        }
+            $this->set('schedules',$result);
+            }
+        } 
         
         public function beforeFilter() {
             parent::beforeFilter();
