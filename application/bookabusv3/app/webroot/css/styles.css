@@ -34,6 +34,12 @@
     background-color: #8dc63f;
 }
 
+body{
+    background-image: url(../img/bg/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .destination-group{
     margin-top: 15%;
 }
@@ -135,7 +141,6 @@ inline-search{
  
  #buslayout .seatCheckBox{
      margin: 5px;}
-
 /*Nuru nuru slider hue*/
 
 
@@ -198,9 +203,12 @@ inline-search{
 
 
   
-/*Pop out mini windows hue*/
+/*Pop out mini windows*/
 
-
+body {
+  color: #333;
+  font-family: 'Helvetica', arial;
+}
 
 
 hr {
