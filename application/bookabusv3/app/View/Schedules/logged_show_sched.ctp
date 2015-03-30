@@ -42,7 +42,18 @@
                                     'after' =>'</div>'
                         ));
                         
-                        echo $this->Form->submit('Search', array ('class'=>'btn btn-info', 'style'=>'margin-bottom:10px', 'div'=> false));
+                        //echo $this->Form->submit('Search', array ('class'=>'btn btn-info', 'style'=>'margin-bottom:10px', 'div'=> false));
+                        
+                        echo $this->Js->submit('Search', array(
+                            'url' => array(
+                                'controller' => 'schedules',
+                                'action' => 'ajax_show_sched'
+                            ),
+                            'update' => '#potato',
+                            'class'=>'btn btn-info', 
+                            'style'=>'margin-bottom:10px', 
+                            'div'=> false
+                        ));
                         echo $this->Form->end(); 
                     ?>
                     <br>
