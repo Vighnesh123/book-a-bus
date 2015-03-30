@@ -111,7 +111,7 @@ class BookingsController extends AppController {
 	}
         
         public function reserve($id = null){
-                $schedule = $this->Booking->find('all', array(
+                $schedule = $this->Booking->find('first', array(
                     'conditions' => array (
                         'Booking.schedule_id'=> $id,
                     ),
@@ -134,6 +134,7 @@ class BookingsController extends AppController {
                     'fields' => array (
                         'Booking.seat_code',
                     ), 
+                    'recursive' => -1,
                 ));
                 $seats = array();
                 foreach ($bookings as $value){
