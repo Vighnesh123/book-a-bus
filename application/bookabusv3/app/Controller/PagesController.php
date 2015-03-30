@@ -77,7 +77,7 @@ class PagesController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
             // Allow users to register and logout.
-            $this->Auth->allow('browse_cities', 'contact' , 'luzon');
+            $this->Auth->allow('browse_cities', 'contact' , 'luzon', 'viz','mind');
         }
         
         public function browse_cities(){
@@ -86,6 +86,15 @@ class PagesController extends AppController {
         
  		public function luzon(){
             
+        }
+
+
+        public function viz() {
+
+        }
+
+        public function mind() {
+
         }
 
         public function contact(){

@@ -95,6 +95,6 @@ $(document).ready(function(){
     });
 
     $("#date-input").datepicker();
-    $("#birthday-picker").datepicker({ dateFormat: 'MM d, yy' });
+    $("#birthday-picker").datepicker({ dateFormat: 'Y-m-d' });
     $("#lss-date").datepicker({ dateFormat: 'MM d, yy' });
 });

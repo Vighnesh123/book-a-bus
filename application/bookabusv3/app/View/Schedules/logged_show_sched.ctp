@@ -20,8 +20,8 @@
                         </fieldset>
                     <?php 
                         echo $this->Form->input('station', array(
-                                    'options' => $stations,
-                                    'empty'=>'Preffered Station',
+                                    'type'=>'text', 
+                                    'placeholder'=>'Preffered Station',
                                     'required'=>'required',
                                     'before'=>'<div class="input-group-md">',
                                     'after' =>'</div>'
@@ -43,18 +43,26 @@
                         ));
                         
                         echo $this->Form->submit('Search', array ('class'=>'btn btn-info', 'style'=>'margin-bottom:10px', 'div'=> false));
-                        echo $this->Js->submit('Ajax Submit', array(
-                            'url'=>array('controller'=>'Schedules', 'action' => 'ajax_show_sched'),
-                            'update'=>'#potato',
-                            'type'=>'json',
-                            'async'=>true 
-                        ));
                         echo $this->Form->end(); 
                     ?>
                     <br>
                     <legend></legend>
                 </div>
-                <div class="col-md-12" id="potato"></div>
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <!-- <th>Bus Liner</th> -->
+                            <th>Station</th>
+                            <th>Destination</th>
+                            <th>Departure Time</th>
+                            <th>Date</th>
+                            <th>ETA</th>           
+                        </tr>
+                        </thead>
+                    </table>
+                    <div id="potato"></div>
+                </div>
             </div>
         </div>
     </div>

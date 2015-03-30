@@ -38,6 +38,8 @@
         Router::connect('/contact', array('controller' => 'pages', 'action' =>  'contact'));
         Router::connect('/register', array('controller' => 'Customers', 'action' =>  'add'));
         Router::connect('/luzon', array('controller' => 'pages', 'action' =>  'luzon'));
+        Router::connect('/viz', array('controller' => 'pages', 'action' =>  'viz'));
+        Router::connect('/mind', array('controller' => 'pages', 'action' =>  'mind'));
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

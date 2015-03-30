@@ -2,13 +2,13 @@
 ?>
 <div class="container">
     <?php echo $this->Html->script(array('jssor.slider','jssor','slidex')); ?>
-    <?php echo $this->Html->css('LVMstyle') ?>
+    <?php echo $this->Html->css('LVMstyle2') ?>
     <div class="row">
         <div class="col-md-12">
             <br>
             <br>
-            <div class="col-md-offset-4 col-md-5" style="padding-left: 3.7%;">
-               <?php echo $this->Html->image('text-img/luzon2.png'); ?> 
+            <div class="col-md-offset-4 col-md-6" >
+               <?php echo $this->Html->image('text-img/mindanao2.png'); ?> 
            </div>
             
            <!-- Pop ups-->
