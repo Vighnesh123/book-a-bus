@@ -402,18 +402,6 @@
 		<td height ="50" bgcolor="#cccccc"><center>700.00</center></td>
 		</tr>
 		
-		<tr>
-		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
-		<td height ="50" bgcolor="#cccccc"><center>Bacag, Abra</center></td>
-		<td height ="50" bgcolor="#cccccc"><center>652.00</center></td>
-		</tr>
-		
-		<tr>
-		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
-		<td height ="50" bgcolor="#cccccc"><center>Galicia, Abra</center></td>
-		<td height ="50" bgcolor="#cccccc"><center>657.00</center></td>
-		</tr>
-		
 		</table>
     <div class="modal-body">
       
