@@ -14,11 +14,11 @@
            <!-- Pop ups-->
   <!--Place1-->         
   <br>
-  <a href="#" class="modal" id="bicol" aria-hidden="true">
+  <a href="#" class="modal" id="zamboanga" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Bicol</h2>
+      <h2>Zamboanga</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -32,11 +32,11 @@
 
 <!-- /Place1 -->
 <!-- Place2 -->
-<a href="#" class="modal" id="batangas" aria-hidden="true">
+<a href="#" class="modal" id="camiguin" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Batangas</h2>
+      <h2>Camiguin</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -354,13 +354,13 @@
                 <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 380px; overflow: hidden;">
 
                           <div>
-                <a class=appicon02 style="left: 0px; top: 0px; background-position:0px 0px;" href="#bicol">
+                <a class=appicon02 style="left: 0px; top: 0px; background-position:0px 0px;" href="#zamboanga">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Bicol</div>
+                    <div class=appiconc>Zamboanga</div>
                 </a>
-                <a class=appicon02 style="left: 160px; top: 0px; background-position:-160px 0px;" href="#batangas">
+                <a class=appicon02 style="left: 160px; top: 0px; background-position:-160px 0px;" href="#camiguin">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Batangas</div>
+                    <div class=appiconc>Camiguin</div>
                 </a>
                 <a class=appicon02 style="left: 320px; top: 0px; background-position:-320px 0px;" href="#baguio">
                     <div class=appiconcb></div>

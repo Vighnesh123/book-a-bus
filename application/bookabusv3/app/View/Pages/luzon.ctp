@@ -289,11 +289,11 @@
   </div>
   <!-- /Place17 -->
    <!-- Place18 -->
-<a href="#" class="modal" id="olongapo" aria-hidden="true">
+<a href="#" class="modal" id="kalinga" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Olongapo</h2>
+      <h2>Kalinga</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -305,11 +305,11 @@
   </div>
   <!-- /Place18 -->
      <!-- Place19 -->
-<a href="#" class="modal" id="sagada" aria-hidden="true">
+<a href="#" class="modal" id="bataan" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Sagada</h2>
+      <h2>Bataan</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -321,11 +321,11 @@
   </div>
    <!-- /Place19 -->
   <!-- /Place20 -->
-  <a href="#" class="modal" id="launion" aria-hidden="true">
+  <a href="#" class="modal" id="catanduanes" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>La Union</h2>
+      <h2>Catanduanes</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -418,7 +418,7 @@
                     <div class=appiconcb></div>
                     <div class=appiconc>Palawan</div>
                 </a>
-                               
+                                
                 <a class=appicon03 style="left: 0px; top: 160px; background-position:0px -160px;" href="#batangas">
                     <div class=appiconcb></div>
                     <div class=appiconc>Batangas</div>
@@ -427,9 +427,18 @@
                     <div class=appiconcb></div>
                     <div class=appiconc>Quezon</div>
                 </a>
-				
-					
-              
+                <a class=appicon03 style="left: 320px; top: 160px; background-position:-320px -160px;" href="#kalinga">
+                    <div class=appiconcb></div>
+                    <div class=appiconc>Kalinga</div>
+                </a>
+                <a class=appicon03 style="left: 480px; top: 160px; background-position:-480px -160px;" href="#bataan">
+                    <div class=appiconcb></div>
+                    <div class=appiconc>Bataan</div>
+                </a>
+                <a class=appicon03 style="left: 640px; top: 160px; background-position:-640px -160px;" href="#catanduanes">
+                    <div class=appiconcb></div>
+                    <div class=appiconc>Catanduanes</div>
+                </a>
             </div>
 
                
