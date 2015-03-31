@@ -48,11 +48,11 @@
   </div>
   <!-- /Place2 -->
   <!-- Place3 -->
-<a href="#" class="modal" id="baguio" aria-hidden="true">
+<a href="#" class="modal" id="bukidnon" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Baguio</h2>
+      <h2>Bukidnon</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -64,11 +64,11 @@
   </div>
   <!-- /Place3 -->
    <!-- Place4 -->
-<a href="#" class="modal" id="pampanga" aria-hidden="true">
+<a href="#" class="modal" id="davao" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Pampanga</h2>
+      <h2>Davao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -80,11 +80,11 @@
   </div>
   <!-- /Place4 -->
    <!-- Place5 -->
-<a href="#" class="modal" id="pangasinan" aria-hidden="true">
+<a href="#" class="modal" id="compostela_valley" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Pangasinan</h2>
+      <h2>Compostela Valley</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -96,11 +96,11 @@
   </div>
   <!-- /Place5 -->
    <!-- Place6 -->
-<a href="#" class="modal" id="tagaytay" aria-hidden="true">
+<a href="#" class="modal" id="cotobato" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Tagaytay</h2>
+      <h2>Cotabato</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -112,11 +112,11 @@
   </div>
   <!-- /Place6 -->
    <!-- Place7 -->
-<a href="#" class="modal" id="pagsanjan" aria-hidden="true">
+<a href="#" class="modal" id="sarangani" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Pagsanjan</h2>
+      <h2>Sarangani</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -128,11 +128,11 @@
   </div>
   <!-- /Place7 -->
    <!-- Place8 -->
-<a href="#" class="modal" id="vigan" aria-hidden="true">
+<a href="#" class="modal" id="sultan_kudarat" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Vigan</h2>
+      <h2>Sultan Kudarat</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -144,11 +144,11 @@
   </div>
   <!-- /Place8 -->
      <!-- Place9 -->
-<a href="#" class="modal" id="ilocossur" aria-hidden="true">
+<a href="#" class="modal" id="maguindanao" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Ilocos Sur</h2>
+      <h2>Maguindanao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -159,11 +159,11 @@
     </div>
   </div>
   <!-- /Place10 -->
-  <a href="#" class="modal" id="ilocosnorte" aria-hidden="true">
+  <a href="#" class="modal" id="surigao" aria-hidden="true">
   </a>
   <div class="modal-dialog">
     <div class="modal-header">
-      <h2>Ilocos Norte</h2>
+      <h2>Surigao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
     <div class="modal-body">
@@ -362,86 +362,40 @@
                     <div class=appiconcb></div>
                     <div class=appiconc>Camiguin</div>
                 </a>
-                <a class=appicon02 style="left: 320px; top: 0px; background-position:-320px 0px;" href="#baguio">
+                <a class=appicon02 style="left: 320px; top: 0px; background-position:-320px 0px;" href="#bukidnon">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Baguio</div>
+                    <div class=appiconc>Bukidnon</div>
                 </a>
-                <a class=appicon02 style="left: 480px; top: 0px; background-position:-480px 0px;" href="#pampanga">
+                <a class=appicon02 style="left: 480px; top: 0px; background-position:-480px 0px;" href="#davao">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Pampanga</div>
+                    <div class=appiconc>Davao</div>
                 </a>
-                <a class=appicon02 style="left: 640px; top: 0px; background-position:-640px 0px;" href="#pangasinan">
+                <a class=appicon02 style="left: 640px; top: 0px; background-position:-640px 0px;" href="#compostela_valley">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Panngasinan</div>
-                </a>
-                                
-                <a class=appicon02 style="left: 0px; top: 160px; background-position:0px -160px;" href="#tagaytay">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Tagaytay</div>
-                </a>
-                <a class=appicon02 style="left: 160px; top: 160px; background-position:-160px -160px;" href="#pagsanjan">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Pagsanjan</div>
-                </a>
-                <a class=appicon02 style="left: 320px; top: 160px; background-position:-320px -160px;" href="#vigan">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Vigan</div>
-                </a>
-                <a class=appicon02 style="left: 480px; top: 160px; background-position:-480px -160px;" href="#ilocossur">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Ilocos Sur</div>
-                </a>
-                <a class=appicon02 style="left: 640px; top: 160px; background-position:-640px -160px;" href="#ilocosnorte">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Ilocos Norte</div>
-                </a>
-            </div>
-
-            <div>
-                <a class=appicon03 style="left: 0px; top: 0px; background-position:0px 0px;" href="#lumban">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Lumban</div>
-                </a>
-                <a class=appicon03 style="left: 160px; top: 0px; background-position:-160px 0px;" href="#quezon">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Quezon Province</div>
-                </a>
-                <a class=appicon03 style="left: 320px; top: 0px; background-position:-320px 0px;" href="#camarinessur">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Camarines Sur</div>
-                </a>
-                <a class=appicon03 style="left: 480px; top: 0px; background-position:-480px 0px;" href="#rizal">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>Rizal</div>
-                </a>
-                <a class=appicon03 style="left: 640px; top: 0px; background-position:-640px 0px;" href="#sanpablo">
-                    <div class=appiconcb></div>
-                    <div class=appiconc>San Pablo</div>
+                    <div class=appiconc>Compostela Valley</div>
                 </a>
                                 
-                <a class=appicon03 style="left: 0px; top: 160px; background-position:0px -160px;" href="#cavite">
+                <a class=appicon02 style="left: 0px; top: 160px; background-position:0px -160px;" href="#cotobato">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Cavite</div>
+                    <div class=appiconc>Cotabato</div>
                 </a>
-                <a class=appicon03 style="left: 160px; top: 160px; background-position:-160px -160px;" href="#camarinesnorte">
+                <a class=appicon02 style="left: 160px; top: 160px; background-position:-160px -160px;" href="#sarangani">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Camarines Norte</div>
+                    <div class=appiconc>Sarangani</div>
                 </a>
-                <a class=appicon03 style="left: 320px; top: 160px; background-position:-320px -160px;" href="#olongapo">
+                <a class=appicon02 style="left: 320px; top: 160px; background-position:-320px -160px;" href="#sultan_kudarat">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Olongapo</div>
+                    <div class=appiconc>Sultan Kudarat</div>
                 </a>
-                <a class=appicon03 style="left: 480px; top: 160px; background-position:-480px -160px;" href="#sagada">
+                <a class=appicon02 style="left: 480px; top: 160px; background-position:-480px -160px;" href="#maguindanao">
                     <div class=appiconcb></div>
-                    <div class=appiconc>Sagada</div>
+                    <div class=appiconc>Maguindanao</div>
                 </a>
-                <a class=appicon03 style="left: 640px; top: 160px; background-position:-640px -160px;" href="#launion">
+                <a class=appicon02 style="left: 640px; top: 160px; background-position:-640px -160px;" href="#surigao">
                     <div class=appiconcb></div>
-                    <div class=appiconc>La Union</div>
+                    <div class=appiconc>Surigao</div>
                 </a>
             </div>
-
-               
            
 
              <?php echo $this->Html->css('absorb') ?>
