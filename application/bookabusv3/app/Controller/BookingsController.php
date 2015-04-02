@@ -46,19 +46,36 @@ class BookingsController extends AppController {
  * @return void
  */
 	public function add() {
+            $this->autoRender = false;
 		if ($this->request->is('post')) {
-			$this->Booking->create();
+			//$this->Booking->create();
+                        //debug($this->request->data);
+                        foreach ($this->request->data['Booking']['seat_code'] as $seats){
+                            $this->Booking->create(array(
+                                'seat_code'=>$seats, 
+                                'schedule_id'=>$this->request->data['Booking']['schedule_id'],
+                                'customer_id'=>$this->request->data['Booking']['customer_id'],
+                                'seat_bus_id'=>$this->request->data['Booking']['seat_bus_id'],
+                                'booking_status'=>'OTW'
+                                    ));
+                            $this->Booking->save();
+                        }
+                        $this->Session->setFlash(__('Seats Has been booked to you'));
+                         //$this->ticket($this->request->data);
+                        return $this->redirect(array('action' => 'ticket', '?x=' => base64_encode($this->request->data)));
+                        /*
 			if ($this->Booking->save($this->request->data)) {
 				$this->Session->setFlash(__('The booking has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The booking could not be saved. Please, try again.'));
-			}
+			} */
 		}
+                /*
 		$customers = $this->Booking->Customer->find('list');
 		$schedules = $this->Booking->Schedule->find('list');
 		$buses = $this->Booking->Bus->find('list');
-		$this->set(compact('customers', 'schedules', 'buses'));
+		$this->set(compact('customers', 'schedules', 'buses')); */
 	}
 
 /**
@@ -116,13 +133,15 @@ class BookingsController extends AppController {
                         'Booking.schedule_id'=> $id,
                     ),
                     'fields' => array (
+                        'Schedule.id',
+                        'Schedule.bus_id',
                         'Schedule.destination',
                         'Schedule.station',
                         'Schedule.departure',
                         'Schedule.date',
                         'Schedule.fare',
                         'Schedule.trip_status',
-                        'Bus.plate_no'
+                        'Bus.plate_no',
                     ), 
                 ));
                 $this->set('scheduleInfo',$schedule);
@@ -141,6 +160,11 @@ class BookingsController extends AppController {
                     $seats[] = $value['Booking']['seat_code'];
                 }
                 $this->set('bookedSeats',$seats);
+        }
+        public function ticket($params=null){
+            print_r(base64_decode($params)) ;
+            //echo $x;
+            //$this->set('values', $x);
         }
         
         public function beforeFilter() {
