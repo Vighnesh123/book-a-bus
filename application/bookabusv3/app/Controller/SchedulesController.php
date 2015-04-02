@@ -199,6 +199,33 @@ class SchedulesController extends AppController {
             }
         } 
         
+        public function reserve($id = null){
+               $seats = array();
+                $schedule = $this->Schedule->find('first', array(
+                    'conditions' => array (
+                        'Schedule.id'=> $id,
+                    ),
+                    'fields' => array (
+                        'Schedule.bus_id',
+                        'Schedule.destination',
+                        'Schedule.station',
+                        'Schedule.departure',
+                        'Schedule.date',
+                        'Schedule.fare',
+                        'Schedule.trip_status',
+                        'Bus.plate_no',
+                    ), 
+                ));
+                
+                foreach ($schedule['Booking'] as $value){
+                    foreach ($value as $value2){
+                        $seats[] = $value['seat_code'];
+                    }
+                }
+                
+                $this->set('bookedSeats',$seats); $this->set('scheduleInfo',$schedule);
+        }
+        
         public function beforeFilter() {
             parent::beforeFilter();
             $this->Auth->allow('index', 'show_sched');
