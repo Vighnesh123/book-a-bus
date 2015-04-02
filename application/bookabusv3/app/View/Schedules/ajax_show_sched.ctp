@@ -25,7 +25,7 @@ $this->Paginator->options(array(
         <td> <?php echo h(date('M d, Y',strtotime($schedule['Schedule']['date']))); ?> </td>
         <td> <?php echo h($schedule['Schedule']['ETA']); ?> </td>
         <td class="actions">
-            <?php echo $this->Html->link(__('Reserve a seat'), array('controller'=> 'Bookings', 'action' => 'reserve', $schedule['Schedule']['id'])); ?>
+            <?php echo $this->Html->link(__('Reserve a seat'), array('controller'=> 'Schedules', 'action' => 'reserve', $schedule['Schedule']['id'])); ?>
         </td>
     </tr>
     <?php endforeach; ?>
