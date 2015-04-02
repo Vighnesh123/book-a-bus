@@ -6,6 +6,7 @@
 <?php echo $this->Html->script(array('reserveSeat'))?>
 <script>
 disableTakenSeats(<?php echo json_encode($bookedSeats)?>);
+calculatePrice(<?php echo h($scheduleInfo['Schedule']['fare'])?>);
 </script>
 <div class="container">
     <div class="row">
@@ -34,111 +35,117 @@ disableTakenSeats(<?php echo json_encode($bookedSeats)?>);
                 
                 <div class="col-md-12">
                     <legend>Layout</legend>
-                    <?php echo $this->Form->create(array('action'=>'add')); ?>
-                    <table id="buslayout">
-                        <input type="hidden" name="data[Booking][seat_code]" id="Seats_" value="0" />
-                        <tr>
-                            <td rowspan="6" style="transform: rotate(-90deg);">Bus Front</td>
-                            <td><label class="seatCheckBox">A</label></td>
-                            <td><label class="seatCheckBox">B</label></td>
-                            <td><label class="seatCheckBox">C</label></td>
-                            <td><label class="seatCheckBox">D</label></td>
-                            <td><label class="seatCheckBox">E</label></td>
-                            <td><label class="seatCheckBox">F</label></td>
-                            <td><label class="seatCheckBox">G</label></td>
-                            <td><label class="seatCheckBox">H</label></td>
-                            <td><label class="seatCheckBox">I</label></td>
-                            <td><label class="seatCheckBox">I</label></td>
-                            <td><label class="seatCheckBox">J</label></td>
-                             <td rowspan="6" style="transform: rotate(-90deg);">Bus Back</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA01" id="AA01" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA02" id="AA02" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA03" id="AA03" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA04" id="AA04" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA05" id="AA05" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA06" id="AA06" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA07" id="AA07" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA08" id="AA08" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA09" id="AA09" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA10" id="AA10" class="seatCheckBox" /></td>
-                            <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA11" id="AA11" class="seatCheckBox" /></td>
-                        </tr>
-                        <tr>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB01', 'id'=>'AB01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB02', 'id'=>'AB02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB03', 'id'=>'AB03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB04', 'id'=>'AB04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB05', 'id'=>'AB05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB06', 'id'=>'AB06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB07', 'id'=>'AB07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB08', 'id'=>'AB08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB09', 'id'=>'AB09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB10', 'id'=>'AB10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB11', 'id'=>'AB11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="10"><center><label class="seatCheckBox"> Center Hall </label></center></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB01', 'id'=>'AB01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                    <div class="col-md-offset-1 col-md-6">
+                        <?php echo $this->Form->create(array('action'=>'add')); ?>
+                        <table id="buslayout">
+                            <input type="hidden" name="data[Booking][seat_code]" id="Seats_" value="0" />
+                            <tr>
+                                <td rowspan="6"><label style="transform: rotate(-90deg);">Bus Front</label></td>
+                                <td><label class="seatCheckBox">A</label></td>
+                                <td><label class="seatCheckBox">B</label></td>
+                                <td><label class="seatCheckBox">C</label></td>
+                                <td><label class="seatCheckBox">D</label></td>
+                                <td><label class="seatCheckBox">E</label></td>
+                                <td><label class="seatCheckBox">F</label></td>
+                                <td><label class="seatCheckBox">G</label></td>
+                                <td><label class="seatCheckBox">H</label></td>
+                                <td><label class="seatCheckBox">I</label></td>
+                                <td><label class="seatCheckBox">I</label></td>
+                                <td><label class="seatCheckBox">J</label></td>
+                                <td rowspan="6"><label style="transform: rotate(-90deg);">Bus Back</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA01" id="AA01" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA02" id="AA02" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA03" id="AA03" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA04" id="AA04" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA05" id="AA05" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA06" id="AA06" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA07" id="AA07" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA08" id="AA08" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA09" id="AA09" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA10" id="AA10" class="seatCheckBox" /></td>
+                                <td><input type="checkbox" name="data[Booking][seat_code][]" value="AA11" id="AA11" class="seatCheckBox" /></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB01', 'id'=>'AB01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB02', 'id'=>'AB02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB03', 'id'=>'AB03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB04', 'id'=>'AB04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB05', 'id'=>'AB05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB06', 'id'=>'AB06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB07', 'id'=>'AB07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB08', 'id'=>'AB08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB09', 'id'=>'AB09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB10', 'id'=>'AB10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB11', 'id'=>'AB11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10"><center><label class="seatCheckBox"> Center Hall </label></center></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB01', 'id'=>'AB01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
 
-                        </tr>
-                        <tr>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC01', 'id'=>'AC01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC02', 'id'=>'AC02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC03', 'id'=>'AC03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC04', 'id'=>'AC04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC05', 'id'=>'AC05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC06', 'id'=>'AC06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC07', 'id'=>'AC07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC08', 'id'=>'AC08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC09', 'id'=>'AC09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC10', 'id'=>'AC10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC11', 'id'=>'AC11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                        </tr>
-                        <tr>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD01', 'id'=>'AD01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD02', 'id'=>'AD02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD03', 'id'=>'AD03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD04', 'id'=>'AD04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD05', 'id'=>'AD05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD06', 'id'=>'AD06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD07', 'id'=>'AD07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD08', 'id'=>'AD08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD09', 'id'=>'AD09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD10', 'id'=>'AD10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                            <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD11', 'id'=>'AD11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
-                        </tr>
-                    </table>
-                    <?php echo $this->Form->input('customer_id', array('value' => $logged_in['id'], 'type'=>'hidden')); ?>
-                    <?php echo $this->Form->input('seat_bus_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
-                    <?php echo $this->Form->input('schedule_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
-                     <!--
-                    <h2>Primary Colors</h2>
-                        <input type="hidden" name="data[Booking][Color]" id="Colors_" value="0" />
-                        <input type="checkbox" name="data[Booking][Color][]" value="Red"
-                            id="ColorsRed" />
-                        <label for="ColorsRed">Red</label>
-                        <input type="checkbox" name="data[Booking][Color][]" value="Blue"
-                            id="ColorsBlue" />
-                        <label for="ColorsBlue">Blue</label>
-                        <input type="checkbox" name="data[Booking][Color][]" value=Yellow"
-                            id="ColorsYellow" />
-                        <label for="ColorsYellow">Yellow</label>
+                            </tr>
+                            <tr>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC01', 'id'=>'AC01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC02', 'id'=>'AC02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC03', 'id'=>'AC03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC04', 'id'=>'AC04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC05', 'id'=>'AC05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC06', 'id'=>'AC06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC07', 'id'=>'AC07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC08', 'id'=>'AC08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC09', 'id'=>'AC09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC10', 'id'=>'AC10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AC11', 'id'=>'AC11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                            </tr>
+                            <tr>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD01', 'id'=>'AD01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD02', 'id'=>'AD02', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD03', 'id'=>'AD03', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD04', 'id'=>'AD04', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD05', 'id'=>'AD05', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD06', 'id'=>'AD06', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD07', 'id'=>'AD07', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD08', 'id'=>'AD08', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD09', 'id'=>'AD09', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD10', 'id'=>'AD10', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td> <?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AD11', 'id'=>'AD11', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                            </tr>
+                        </table>
+                        <?php echo $this->Form->input('customer_id', array('value' => $logged_in['id'], 'type'=>'hidden')); ?>
+                        <?php echo $this->Form->input('seat_bus_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
+                        <?php echo $this->Form->input('schedule_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
+                         <!--
+                        <h2>Primary Colors</h2>
+                            <input type="hidden" name="data[Booking][Color]" id="Colors_" value="0" />
+                            <input type="checkbox" name="data[Booking][Color][]" value="Red"
+                                id="ColorsRed" />
+                            <label for="ColorsRed">Red</label>
+                            <input type="checkbox" name="data[Booking][Color][]" value="Blue"
+                                id="ColorsBlue" />
+                            <label for="ColorsBlue">Blue</label>
+                            <input type="checkbox" name="data[Booking][Color][]" value=Yellow"
+                                id="ColorsYellow" />
+                            <label for="ColorsYellow">Yellow</label>
 
-                        <h2>Tertiary Colors</h2>
+                            <h2>Tertiary Colors</h2>
 
-                        <input type="checkbox" name="data[Booking][Color][]" value="Green"
-                            id="ColorsGreen" />
-                        <label for="ColorsGreen">Green</label>
-                        <input type="checkbox" name="data[Booking][Color][]" value="Purple"
-                            id="ColorsPurple" />
-                        <label for="ColorsPurple">Purple</label>
-                        <input type="checkbox" name="data[Booking][Color][]" value="Orange"
-                            id="ColorsOrange" />
-                        <label for="ColorsOrange">Orange</label> -->
-                    <?php echo $this->Form->Submit()?>
-                </div> 
+                            <input type="checkbox" name="data[Booking][Color][]" value="Green"
+                                id="ColorsGreen" />
+                            <label for="ColorsGreen">Green</label>
+                            <input type="checkbox" name="data[Booking][Color][]" value="Purple"
+                                id="ColorsPurple" />
+                            <label for="ColorsPurple">Purple</label>
+                            <input type="checkbox" name="data[Booking][Color][]" value="Orange"
+                                id="ColorsOrange" />
+                            <label for="ColorsOrange">Orange</label> -->
+                        <?php echo $this->Form->Submit()?> 
+                    </div>    
+                    <div class="col-md-4">
+                        Total Price : <label id="price"> 0.00 </label>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
