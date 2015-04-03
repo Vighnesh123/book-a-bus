@@ -15,7 +15,29 @@ class BookingsController extends AppController {
  */
 	public $components = array('Paginator');
 
-/**
+        
+        private function makeTransactionCode(){
+            $this->autoRender = false;
+            $date = date_format(date_create(), "m/d/y");
+            $time = time();
+
+            $x = $date.$time;
+            
+            $hashed = md5($x);
+            $sliced = substr($hashed, 0,4);
+            $uppercase = strtoupper($sliced);
+            $datefinal = $uppercase;
+            
+            $rand = uniqid();
+            $randslice = substr($rand, 6, 11);
+            $randupper = strtoupper($randslice);
+            $randfinal = $randupper;
+            
+            $refNum = $datefinal.$randfinal;
+            
+            return $refNum;
+        }
+        /**
  * index method
  *
  * @return void
@@ -48,21 +70,25 @@ class BookingsController extends AppController {
 	public function add() {
             $this->autoRender = false;
 		if ($this->request->is('post')) {
-			//$this->Booking->create();
-                        //debug($this->request->data);
+                    
+                        //$refNum = $this->makeTransactionCode();
+                        /*
+			$this->Booking->create();
+                    
                         foreach ($this->request->data['Booking']['seat_code'] as $seats){
                             $this->Booking->create(array(
                                 'seat_code'=>$seats, 
                                 'schedule_id'=>$this->request->data['Booking']['schedule_id'],
                                 'customer_id'=>$this->request->data['Booking']['customer_id'],
                                 'seat_bus_id'=>$this->request->data['Booking']['seat_bus_id'],
-                                'booking_status'=>'OTW'
-                                    ));
+                                'booking_status'=>'OTW',
+                                'transaction_no'=>$refNum
+                                ));
                             $this->Booking->save();
                         }
                         $this->Session->setFlash(__('Seats Has been booked to you'));
                          //$this->ticket($this->request->data);
-                        return $this->redirect(array('action' => 'ticket', '?x=' => base64_encode($this->request->data)));
+                        return $this->redirect(array('action' => 'ticket', '?x=' => base64_encode($this->request->data)));  */
                         /*
 			if ($this->Booking->save($this->request->data)) {
 				$this->Session->setFlash(__('The booking has been saved.'));
@@ -127,10 +153,31 @@ class BookingsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
         
-        public function ticket($params=null){
-            print_r(base64_decode($params)) ;
-            //echo $x;
-            //$this->set('values', $x);
+        public function saleSummary($params=null){
+            if($this->request->is("post")){
+                debug($this->request->data);
+                $this->set('transactionInfo', $this->request->data);
+            }
+        }
+        
+        public function save_reserve(){
+            if($this->request->is("post")){
+                debug($this->request->data);
+                $refNum = $this->makeTransactionCode();
+                
+                foreach ($this->request->data['Booking']['seat_code'] as $seats){
+                            $this->Booking->create(array(
+                                'seat_code'=>$seats, 
+                                'schedule_id'=>$this->request->data['Booking']['schedule_id'],
+                                'customer_id'=>$this->request->data['Booking']['customer_id'],
+                                'seat_bus_id'=>$this->request->data['Booking']['seat_bus_id'],
+                                'booking_status'=>'OTW',
+                                'transaction_code'=>$refNum
+                                ));
+                            $this->Booking->save();
+                        }
+                        $this->Session->setFlash(__('Seats Has been booked to you'));
+            }
         }
         
         public function beforeFilter() {
