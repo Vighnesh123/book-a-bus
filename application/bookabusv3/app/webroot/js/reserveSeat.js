@@ -10,6 +10,7 @@ function calculatePrice(price){
     var priceTotal = 0.00;
     price.toFixed(2);
     $(document).ready(function (){
+        $('input:checkbox').prop('checked',false);
         $('input:checkbox').on('change', function(){
             if($(this).prop('checked')){
                 //alert(price);
