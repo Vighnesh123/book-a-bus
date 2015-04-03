@@ -1,7 +1,4 @@
 <?php 
-//print_r($scheduleInfo);
-//print_r($bookedSeats);
-//print_r($logged_in);
 ?>
 <?php echo $this->Html->script(array('reserveSeat'))?>
 <script>
