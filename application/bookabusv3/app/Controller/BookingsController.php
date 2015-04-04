@@ -166,18 +166,44 @@ class BookingsController extends AppController {
                 $refNum = $this->makeTransactionCode();
                 
                 foreach ($this->request->data['Booking']['seat_code'] as $seats){
-                            $this->Booking->create(array(
-                                'seat_code'=>$seats, 
-                                'schedule_id'=>$this->request->data['Booking']['schedule_id'],
-                                'customer_id'=>$this->request->data['Booking']['customer_id'],
-                                'seat_bus_id'=>$this->request->data['Booking']['seat_bus_id'],
-                                'booking_status'=>'OTW',
-                                'transaction_code'=>$refNum
-                                ));
-                            $this->Booking->save();
-                        }
-                        $this->Session->setFlash(__('Seats Has been booked to you'));
+                    $this->Booking->create(array(
+                        'seat_code'=>$seats, 
+                        'schedule_id'=>$this->request->data['Booking']['schedule_id'],
+                        'customer_id'=>$this->request->data['Booking']['customer_id'],
+                        'seat_bus_id'=>$this->request->data['Booking']['seat_bus_id'],
+                        'booking_status'=>'OTW',
+                        'transaction_code'=>$refNum
+                        ));
+                    $this->Booking->save();
+                }
+                $this->Session->setFlash(__('Seats Has been booked to you'));
+                $this->redirect('my_booking/'.$refNum); 
             }
+        }
+        
+        public function my_booking($transaction_code = null){
+            // create a validation If id belogs to current logged user, if not redirect to error
+            $bookingInfo = $this->Booking->find('all', array(
+                'conditions'=> array(
+                    'Booking.transaction_code' => $transaction_code,
+                    'Customer.id' => $this->Auth->user()['id'],
+                ),
+                'fields'=> array (
+                    'Booking.seat_code',
+                    'Booking.transaction_code',
+                    'Booking.booking_status',
+                    'Customer.fname',
+                    'Customer.lname',
+                    'Customer.MI',
+                    'Schedule.destination',
+                    'Schedule.station',
+                    'Schedule.departure',
+                    'Schedule.date',
+                    'Schedule.fare'
+                ),
+            ));
+            
+            $this->set('bookingInfo', $bookingInfo);
         }
         
         public function beforeFilter() {
