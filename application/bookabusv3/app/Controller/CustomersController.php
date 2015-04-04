@@ -123,7 +123,22 @@ class CustomersController extends AppController {
         }
         
         public function dashboard(){
+            $bookingsList = $this->Customer->Booking->find('all', array(
+                'conditions'=> array(
+                    'Customer.id'=> $this->Auth->user()['id'],
+                ),
+                'fields'=>array(
+                    'DISTINCT Booking.transaction_code',
+                    'Schedule.station',
+                    'Schedule.destination',
+                    'Schedule.date',
+                ),
+                'limit'=>4,
+                'order'=>'Schedule.date DESC',
+                'recursive'=>1
+            ));
             
+            $this->set('bookingsList',$bookingsList);
         }
         
         public function changePass(){
