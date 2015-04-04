@@ -23,7 +23,7 @@ function goBack() {
                 echo $this->Form->create('Booking',array('action'=>'save_reserve'));
                 echo $this->Form->input('customer_id', array ('value'=>$logged_in['id'], 'type'=>'hidden'));
                 echo $this->Form->input('seat_bus_id', array('value'=>$transactionInfo['Booking']['seat_bus_id'], 'type'=>'hidden'));
-                echo $this->Form->input('schedule_id', array('value'=>$transactionInfo['Booking']['seat_bus_id'], 'type'=>'hidden'));
+                echo $this->Form->input('schedule_id', array('value'=>$transactionInfo['Booking']['schedule_id'], 'type'=>'hidden'));
                 foreach ($transactionInfo['Booking']['seat_code'] as $seats){
                     echo $this->Form->input('seat_code.', array('value'=>$seats, 'type'=>'hidden'));
                 }
