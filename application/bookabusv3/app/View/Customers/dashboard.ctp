@@ -69,6 +69,11 @@
                                     </tr>
                                     <?php endforeach ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3"><?php echo $this->Html->link('See All Bookings', array('controller'=>'Bookings', 'action'=>'list_bookings')); ?></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
