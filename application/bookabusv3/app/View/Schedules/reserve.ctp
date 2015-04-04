@@ -111,7 +111,7 @@ calculatePrice(<?php echo h($scheduleInfo['Schedule']['fare'])?>);
                         </table>
                         
                         <?php echo $this->Form->input('seat_bus_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
-                        <?php echo $this->Form->input('schedule_id', array('value' =>$scheduleInfo['Schedule']['bus_id'], 'type'=>'hidden')); ?>
+                        <?php echo $this->Form->input('schedule_id', array('value' =>$scheduleInfo['Schedule']['id'], 'type'=>'hidden')); ?>
                         <?php echo $this->Form->input('destination', array('value' =>h($scheduleInfo['Schedule']['destination']), 'type'=>'hidden')); ?>
                         <?php echo $this->Form->input('station', array('value' => h($scheduleInfo['Schedule']['station']), 'type'=>'hidden')); ?>
                         <?php echo $this->Form->input('departure', array('value' => h($scheduleInfo['Schedule']['departure']), 'type'=>'hidden')); ?>
