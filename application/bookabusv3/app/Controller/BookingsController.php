@@ -206,6 +206,23 @@ class BookingsController extends AppController {
             $this->set('bookingInfo', $bookingInfo);
         }
         
+        public function list_bookings(){
+            $allBookings = $this->Booking->find('all', array(
+                'conditions'=>array(
+                    'Customer.id' => $this->Auth->user()['id'],
+                ),
+                'fields'=>array(
+                    'Booking.transaction_code',
+                    'Booking.booking_status',
+                    'Schedule.destination',
+                    'Schedule.date'
+                ),
+                'order'=>'Schedule.date DESC'
+            ));
+            
+            $this->set('allBookings',$allBookings);
+        }
+        
         public function beforeFilter() {
                 parent::beforeFilter();
                 //$this->Auth->allow('index', 'show_sched');
