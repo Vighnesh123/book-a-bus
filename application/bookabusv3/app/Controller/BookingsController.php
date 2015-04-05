@@ -189,6 +189,7 @@ class BookingsController extends AppController {
                     'Customer.id' => $this->Auth->user()['id'],
                 ),
                 'fields'=> array (
+                    'Booking.id',
                     'Booking.seat_code',
                     'Booking.transaction_code',
                     'Booking.booking_status',
@@ -204,6 +205,16 @@ class BookingsController extends AppController {
             ));
             
             $this->set('bookingInfo', $bookingInfo);
+            if($this->request->is('post')){
+                $updateInfo['Booking']['booking_status'] = 'CANCELLED';
+                foreach ($this->request->data['Booking']['id'] as $ids){
+                    $this->Booking->id = $ids;
+                    $updateInfo['Booking']['id'] = $ids;
+                    $this->Booking->save($updateInfo);   
+                }
+                $this->Session->setFlash(__('Reservation has been cancelled.'));
+                return $this->redirect(array('action' => 'list_bookings'));
+            }
         }
         
         public function list_bookings(){
@@ -212,7 +223,7 @@ class BookingsController extends AppController {
                     'Customer.id' => $this->Auth->user()['id'],
                 ),
                 'fields'=>array(
-                    'Booking.transaction_code',
+                    'DISTINCT Booking.transaction_code',
                     'Booking.booking_status',
                     'Schedule.destination',
                     'Schedule.date'
