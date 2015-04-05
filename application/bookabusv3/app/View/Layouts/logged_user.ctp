@@ -53,11 +53,11 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                                 </div>
                                 <div class="collapse navbar-collapse navHeaderCollapse">
                                     <ul class='nav navbar-nav navbar-right'>
-                                        <li><a href="/bookabusv3/dashboard"><?php echo $this->Html->image('navbar/unselected_nav/u-dashboard.jpg', array('id' => 'dashboard', 'alt' => 'home', 'class'=>'navImg')); ?></a></li>
-                                        <li><a href="/bookabusv3/browse_cities"><?php echo $this->Html->image('navbar/unselected_nav/u-browse.jpg', array('id' => 'browse', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
-                                        <li><a href="/bookabusv3/schedules"><?php echo $this->Html->image('navbar/unselected_nav/u-sched.jpg', array('id' => 'schedule', 'alt' => 'browse', 'class'=>'navImg')); ?></a></li>
-                                        <li><a href="/bookabusv3/contact"><?php echo $this->Html->image('navbar/unselected_nav/u-contact.jpg', array('id' => 'contact', 'alt' => 'contact', 'class'=>'navImg')); ?></a></li>
-                                        <li><a href="/bookabusv3/logout"><?php echo $this->Html->image('navbar/unselected_nav/u-logout.jpg', array('id' => 'logout','alt' => 'login', 'class'=>'navImg')); ?></a></li>
+                                        <li><a href="/bookabusv3/dashboard">DASHBOARD</a></li>
+                                        <li><a href="/bookabusv3/browse_cities">BROWSE CITIES</a></li>
+                                        <li><a href="/bookabusv3/schedules">SCHEDULES</a></li>
+                                        <li><a href="/bookabusv3/contact">CONTACT</a></li>
+                                        <li><a href="/bookabusv3/logout">LOGOUT</a></li>
                                     </ul>
                                 </div>
                             </div>
