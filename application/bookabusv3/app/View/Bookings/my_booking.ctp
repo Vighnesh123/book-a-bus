@@ -1,6 +1,11 @@
 <?php
 //debug($bookingInfo);
 ?>
+<script>
+function confirmCancel(){
+    return confirm("Are you sure you want to cancel request ?");
+}
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -46,7 +51,12 @@
                     </div>
                     <?php echo $this->Html->link($this->Form->button('Button'), array('controller'=>'Customers', 'action' => '/dashboard'), array('escape'=>false,'title' => "Back To Dashboard")); ?>
                 </div>
-                
+                <?php echo $this->Form->create(); ?>
+                <?php 
+                foreach ($bookingInfo as $bookingIds){
+                    echo $this->Form->hidden('id.', array('value'=>$bookingIds['Booking']['id'])); 
+                } ?>
+                <?php echo $this->Form->submit('Cancel Request', array('onclick'=>'return confirmCancel()')); ?>
             </div>
         </div>
     </div>
