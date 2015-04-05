@@ -6,15 +6,30 @@
 .nav-bg{
     background-color: #0054a6;
     background-image: none;
+    height: fit-content;
 }
 
 .navbar .nav > li > a{
     padding: 0px;  
     display: block;
     background-color: #0054a6;
-    margin: 0px;
+    margin: 0px;  
 }
 
+.nav a .navText{
+    font-family: gothamRounded;
+    color:white;
+}
+.navbar .nav > li > a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    vertical-align: middle;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    font-family: gothamRounded;
+    color:white;
+    line-height: 50px;
+}
 .navbar-brand{
     padding: 0px;
 }
