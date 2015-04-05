@@ -70,6 +70,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php if(empty($bookingsList)) :?>
+                                    <tr>
+                                        <td colspan="3">You have no current bookings.</td>
+                                    </tr>
+                                    <?php endif; ?>
                                     <?php foreach ($bookingsList as $bookings) : ?>
                                     <tr> 
                                         <td><?php echo $this->Html->link(h($bookings['Booking']['transaction_code']), array('controller'=>'Bookings', 'action'=>'my_booking',h($bookings['Booking']['transaction_code']) )) ?></td>
