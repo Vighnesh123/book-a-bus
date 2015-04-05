@@ -51,7 +51,7 @@ class CustomersController extends AppController {
 			$this->Customer->create();
 			if ($this->Customer->save($this->request->data)) {
 				$this->Session->setFlash(__('The customer has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller'=>'Customers','action' => 'login'));
 			} else {
 				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'));
 			}
