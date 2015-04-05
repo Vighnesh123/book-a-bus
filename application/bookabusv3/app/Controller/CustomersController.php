@@ -126,7 +126,7 @@ class CustomersController extends AppController {
             $bookingsList = $this->Customer->Booking->find('all', array(
                 'conditions'=> array(
                     'Customer.id'=> $this->Auth->user()['id'],
-                    'Schedule.date >' => date('Y-m-d'),
+                    'Schedule.date >=' => date('Y-m-d'),
                 ),
                 'fields'=>array(
                     'DISTINCT Booking.transaction_code',
