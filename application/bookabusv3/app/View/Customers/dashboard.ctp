@@ -40,13 +40,22 @@
                     </div>
                     <div class="col-md-6 bar2">
                         <div class="col-md-12 sched-block">
-                            <table style="width: 100%;">
+                            <table style="width: 100%;" class="table">
                                 <thead>
                                     <tr>
                                         <td style="width: 50%;">BIYAHE HISTORY</td>
                                         <td style="width: 50%;">DATE</td>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <?php foreach ($scheduleHistoryList as $schedules) : ?>
+                                    <tr> 
+                                        <td><?php echo $schedules['Schedule']['station'] . " to " . $schedules['Schedule']['destination'] ?></td>
+                                        <td><?php //echo $this->Html->link(h($schedules['Booking']['transaction_code']), array('controller'=>'Bookings', 'action'=>'my_booking',h($bookings['Booking']['transaction_code']) )) ?></td>
+                                        <td><?php echo $schedules['Schedule']['date']?></td>
+                                    </tr>
+                                    <?php endforeach ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
