@@ -1,4 +1,5 @@
 <?php
+//debug($userInfo);
 ?>
 <div class="container">
     <div class="row">
