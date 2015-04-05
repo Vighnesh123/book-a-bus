@@ -126,6 +126,23 @@ class CustomersController extends AppController {
             $bookingsList = $this->Customer->Booking->find('all', array(
                 'conditions'=> array(
                     'Customer.id'=> $this->Auth->user()['id'],
+                    'Schedule.date >' => date('Y-m-d'),
+                ),
+                'fields'=>array(
+                    'DISTINCT Booking.transaction_code',
+                    'Schedule.station',
+                    'Schedule.destination',
+                    'Schedule.date',
+                ),
+                'limit'=>4,
+                'order'=>'Schedule.date DESC',
+                'recursive'=>1
+            ));
+            
+            $scheduleHistoryList = $this->Customer->Booking->find('all', array(
+                'conditions'=> array(
+                    'Customer.id'=> $this->Auth->user()['id'],
+                    'Schedule.date <' => date('Y-m-d'),
                 ),
                 'fields'=>array(
                     'DISTINCT Booking.transaction_code',
@@ -139,6 +156,7 @@ class CustomersController extends AppController {
             ));
             
             $this->set('bookingsList',$bookingsList);
+            $this->set('scheduleHistoryList',$scheduleHistoryList);
         }
         
         public function changePass(){
