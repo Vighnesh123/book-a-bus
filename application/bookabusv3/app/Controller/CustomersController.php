@@ -106,7 +106,7 @@ class CustomersController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
             // Allow users to register and logout.
-            $this->Auth->allow('add','forgot');
+            $this->Auth->allow('add','forgot','reset');
         }
         
         public function login() {
@@ -173,17 +173,76 @@ class CustomersController extends AppController {
         
         public function forgot(){
             if($this->request->is('post')){
-                if(!empty($this->request->data)){
-                    //print_r($this->request->data);
-                    $result = $this->Customer->find('first',array(
+                    $userInfo = $this->Customer->find('first',array(
                         'conditions'=>array('Customer.email' =>$this->request->data['Customer']['email']),
-                        'fields' => array(
-                            'Customer.email',
-                            'Customer.fname'
-                            ),
+                        'fields' => array('Customer.email', 'Customer.id','Customer.fname','Customer.lname'),
                         'recursive'=>-1
                     ));
+                    if(!empty($userInfo)){
+                        $key = Security::hash(String::uuid(), 'sha512', true);
+                        $hash = sha1($userInfo['Customer']['email'].  rand(0, 120));
+                        $url = Router::url(array('controller'=>'Customers', 'action'=>'reset'),true).'/'.$key.'#'.$hash;
+                        $ms = wordwrap($url,1000);
+                        $userInfo['Customer']['tokenhash'] = $key;
+                        $this->Customer->id = $userInfo['Customer']['id'];
+                        if ($this->Customer->saveField('tokenhash', $userInfo['Customer']['tokenhash'])){
+                             //============Email================//
+                            /* SMTP Options */
+                            $this->Email->smtpOptions = array(
+                            'port'=>465,
+                            'timeout'=>'360',
+                            'host' => 'ssl://smtp.gmail.com',
+                            'username'=>'pqmayo406@gmail.com',
+                            'password'=>'paolo123',
+                            'transport'=>'Smtp',
+                              );
+                            $this->Email->template = 'resetpw';
+                            $this->Email->from    = 'biyahe_by_bus@noreply.com';
+                            $this->Email->to      = $userInfo['Customer']['fname']." ".$userInfo['Customer']['lname'].'<'.$userInfo['Customer']['email'].'>';
+                            $this->Email->subject = 'Password Reset For Biyahe';
+                            $this->Email->sendAs = 'both';
+
+                            $this->Email->delivery = 'smtp';
+                            $this->set('ms', $ms);
+                            $this->Email->send();
+                            $this->set('smtp_errors', $this->Email->smtpError);
+                            $this->Session->setFlash(__('Check Your Email To Reset your password', true));
+                            $this->redirect(array('controller'=>'Customers','action'=>'login'));
+                            //============EndEmail=============//
+                        }else {
+                            $this->Session->setFlash('Error sending the reset email');
+                        }
+                    }
+                  //  $this->set('userInfo',$userInfo);
+                
+            }
+        }
+        
+        public function reset($token=null){
+            $this->Customer->recursive=-1;
+            if(!empty($token)){
+                $u=$this->Customer->findBytokenhash($token);
+                if($u){
+                    $this->Customer->id=$u['Customer']['id'];
+                    if(!empty($this->request->data)){
+                        $this->Customer->data=$this->request->data;
+                        $this->Customer->data['Customer']['email']=$u['Customer']['email'];
+                        $new_hash=sha1($u['Customer']['email'].rand(0,100));//created token
+                        $this->Customer->data['Customer']['tokenhash']=$new_hash;
+                        if($this->Customer->validates(array('fieldList'=>array('password','password_confirmation')))){
+                            if($this->Customer->save($this->Customer->data)){
+                                $this->Session->setFlash('Password Has been Updated');
+                            }
+                        }else{
+
+                            $this->set('errors',$this->Customer->invalidFields());
+                        }
+                    }
+                }else{
+                    $this->Session->setFlash('Token Corrupted,,Please Retry.the reset link work only for once.');
                 }
+            }else{
+            $this->redirect('/');
             }
         }
 }
