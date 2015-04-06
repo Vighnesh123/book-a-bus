@@ -419,9 +419,29 @@
       <h2>Tarlac</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Sampaloc, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Bamban, Tarlac</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>153.00</center></td>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Capaz, Tarlac</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>142.00</center></td>
+		</tr>
+		</table>
     <div class="modal-body">
 
-      <p>One modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -436,9 +456,29 @@
     <div class="modal-header">
       <h2>Pampanga</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
-    </div>
+    </div>	
+	<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Clark, Pampanga</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>250.00</center></td>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Dau, Pampanga</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>116.00</center></td>
+		</tr>
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -452,9 +492,28 @@
     <div class="modal-header">
       <h2>Albay</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
-    </div>
+    </div>	<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Daraga, Albay</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>850.00</center></td>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Camalig, Albay</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>850.00</center></td>
+		</tr>
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -469,8 +528,28 @@
       <h2>Sorsogon</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+	<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Cumadcad-Castilla, Sorsogon</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>823.00</center></td>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Cubao, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Donsol, Sorsogon</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>859.00</center></td>
+		</tr>
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -501,8 +580,23 @@
       <h2>Batangas</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+	<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Buendia, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Batangas</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>170.00</center></td>
+		</tr>
+		
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+     
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
