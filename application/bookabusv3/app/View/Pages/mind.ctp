@@ -21,9 +21,24 @@
       <h2>Zamboanga</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Zamboanga</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>2000.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
 
-      <p>One modal example here! :D</p>
+     
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -39,8 +54,23 @@
       <h2>Camiguin</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Benoni Port</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1500.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+     
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -55,8 +85,23 @@
       <h2>Bukidnon</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Bukidnon</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>992.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -71,8 +116,23 @@
       <h2>Davao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Davao</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1800.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+    
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -87,8 +147,23 @@
       <h2>Compostela Valley</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Compostela Valley</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1800.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -103,8 +178,23 @@
       <h2>Cotabato</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+	    	<br>
+	<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Cotabato</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1700.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+  
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -119,8 +209,23 @@
       <h2>Sarangani</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+		<br>
+		<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Sarangani</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1700.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -135,8 +240,23 @@
       <h2>Sultan Kudarat</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+			<br>
+		<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Sultan Kudarat</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1800.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+     
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -151,8 +271,23 @@
       <h2>Maguindanao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+			<br>
+		<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Maguindanao</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1800.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+      
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
@@ -166,8 +301,23 @@
       <h2>Surigao</h2>
       <a href="#" class="btn-close" aria-hidden="true">×</a>
     </div>
+	   		<br>
+		<table border ="1" bordercolor= "white" align="left">
+		<tr bgcolor="#4875CA">
+		<th width="333"><font color="#FFFFFF"><center>Origin</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Destination</center></font></th>
+		<th width="333"><font color="#FFFFFF"><center>Fare(PHP)</center></font></th>
+		</tr>
+		
+		<tr>
+		<td height ="50" bgcolor="#cccccc"><center>Pasay, Metro Manila</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>Balingoan</center></td>
+		<td height ="50" bgcolor="#cccccc"><center>1600.00</center></td>
+		</tr>
+
+		</table>
     <div class="modal-body">
-      <p>Two modal example here! :D</p>
+  
     </div>
     <div class="modal-footer">
       <a href="#" class="btn">View other places</a>
