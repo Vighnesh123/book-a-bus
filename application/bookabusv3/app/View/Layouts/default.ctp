@@ -64,7 +64,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                     </div>
 		</div>
 		<div id="content">
-			 <?php if($this->Session->check('Message')){ echo '<div class="col-md-offset-1 col-md-10 data-group">'. $this->Session->flash().'</div>';} ?>
+			 <?php echo $this->Session->flash();?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
