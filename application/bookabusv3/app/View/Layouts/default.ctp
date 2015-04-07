@@ -55,7 +55,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                                     <ul class='nav navbar-nav navbar-right'>
                                         <li><a href="/bookabusv3/home" class="navText">HOME</a></li>
                                         <li><a href="/bookabusv3/browse_cities" class="navText">BROWSE CITIES</a></li>
-                                        <li><a href="/bookabusv3/contact" class="navText">CONTACT</a></li>
+                                        <li><a href="/bookabusv3/contact" class="navText">ABOUT</a></li>
                                         <li><a href="/bookabusv3/login" class="navText">LOGIN</a></li>
                                     </ul>
                                 </div>

@@ -56,7 +56,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
                                         <li><a href="/bookabusv3/dashboard">DASHBOARD</a></li>
                                         <li><a href="/bookabusv3/browse_cities">BROWSE CITIES</a></li>
                                         <li><a href="/bookabusv3/schedules">SCHEDULES</a></li>
-                                        <li><a href="/bookabusv3/contact">CONTACT</a></li>
+                                        <li><a href="/bookabusv3/contact">ABOUT</a></li>
                                         <li><a href="/bookabusv3/logout">LOGOUT</a></li>
                                     </ul>
                                 </div>
