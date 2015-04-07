@@ -1,5 +1,4 @@
 <?php
-print_r();
 ?>
 <div class="container">
     <div class="row">

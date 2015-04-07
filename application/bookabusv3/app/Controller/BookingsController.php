@@ -155,14 +155,12 @@ class BookingsController extends AppController {
         
         public function saleSummary($params=null){
             if($this->request->is("post")){
-                debug($this->request->data);
                 $this->set('transactionInfo', $this->request->data);
             }
         }
         
         public function save_reserve(){
             if($this->request->is("post")){
-                debug($this->request->data);
                 $refNum = $this->makeTransactionCode();
                 
                 foreach ($this->request->data['Booking']['seat_code'] as $seats){
