@@ -114,7 +114,7 @@ class SchedulesController extends AppController {
             $result = $this->Schedule->find('all', array (
                 'conditions' => array(
                     'Schedule.station =' => $station,
-                    'Schedule.date =' => $date,
+                    'Schedule.date >' => $date,
                     'Schedule.destination =' => $destination
                     ),
                 'fields'=>array(
@@ -189,6 +189,7 @@ class SchedulesController extends AppController {
                     if(!empty($station)){$conditions['Schedule.station'] = $station;}
                     if(!empty($date)){$conditions['Schedule.date'] = $date;}
                     if(!empty($destination)){$conditions['Schedule.destination'] =  $destination;} 
+                    $conditions['Schedule.date >'] =  date('Y-m-d');
                     //$options['conditions'] = array('Schedule.station' => $station);
                     $options['conditions'] = $conditions;
                     //print_r($options);
