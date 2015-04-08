@@ -116,11 +116,13 @@ calculatePrice(<?php echo h($scheduleInfo['Schedule']['fare'])?>);
                         <?php echo $this->Form->input('station', array('value' => h($scheduleInfo['Schedule']['station']), 'type'=>'hidden')); ?>
                         <?php echo $this->Form->input('departure', array('value' => h($scheduleInfo['Schedule']['departure']), 'type'=>'hidden')); ?>
                         <?php echo $this->Form->input('date', array('value' => h($scheduleInfo['Schedule']['date']), 'type'=>'hidden')); ?>
-                        <?php echo $this->Form->input('fare', array('value' => h($scheduleInfo['Schedule']['fare']), 'type'=>'hidden')); ?>
-                        <?php echo $this->Form->Submit()?> 
+                        <?php echo $this->Form->input('fare', array('value' => h($scheduleInfo['Schedule']['fare']), 'type'=>'hidden')); ?> 
+                        <br>
                     </div>    
                     <div class="col-md-4">
                         Total Price : <label id="price"> 0.00 </label>
+                        <br>
+                        <?php echo $this->Form->Submit('Reserve', array('class'=>'btn btn-info'))?> 
                     </div>
                 </div>
                 
