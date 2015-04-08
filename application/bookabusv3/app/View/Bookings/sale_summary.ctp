@@ -17,18 +17,25 @@ function goBack() {
                     <br>Total Number of Seats: <?php $seatcount = count($transactionInfo['Booking']['seat_code']); echo $seatcount; ?>
                     <br>Fare per seat : <?php echo h($transactionInfo['Booking']['fare']);?>
                     <br>Total Price : <?php echo number_format($transactionInfo['Booking']['fare'] * $seatcount,2);?>
-                </div>
-                <button onclick="goBack()"> No </button>
-                <?php 
-                echo $this->Form->create('Booking',array('action'=>'save_reserve'));
-                echo $this->Form->input('customer_id', array ('value'=>$logged_in['id'], 'type'=>'hidden'));
-                echo $this->Form->input('seat_bus_id', array('value'=>$transactionInfo['Booking']['seat_bus_id'], 'type'=>'hidden'));
-                echo $this->Form->input('schedule_id', array('value'=>$transactionInfo['Booking']['schedule_id'], 'type'=>'hidden'));
-                foreach ($transactionInfo['Booking']['seat_code'] as $seats){
-                    echo $this->Form->input('seat_code.', array('value'=>$seats, 'type'=>'hidden'));
-                }
-                //$this->Form->input('seat_code', array('value'=>$transactionInfo['Booking']['seat_code'], 'type'=>'hidden'));
-                echo $this->Form->submit('Submit');
-                ?>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button onclick="return goBack()" class="btn btn-danger"> No </button>
+                        </div>
+                        <div class="col-md-6">
+                             <?php 
+                                echo $this->Form->create('Booking',array('action'=>'save_reserve'));
+                                echo $this->Form->input('customer_id', array ('value'=>$logged_in['id'], 'type'=>'hidden'));
+                                echo $this->Form->input('seat_bus_id', array('value'=>$transactionInfo['Booking']['seat_bus_id'], 'type'=>'hidden'));
+                                echo $this->Form->input('schedule_id', array('value'=>$transactionInfo['Booking']['schedule_id'], 'type'=>'hidden'));
+                                foreach ($transactionInfo['Booking']['seat_code'] as $seats){
+                                    echo $this->Form->input('seat_code.', array('value'=>$seats, 'type'=>'hidden'));
+                                }
+                                //$this->Form->input('seat_code', array('value'=>$transactionInfo['Booking']['seat_code'], 'type'=>'hidden'));
+                                echo $this->Form->submit('Yes', array ('class' => 'btn btn-success'));
+                                ?>
+                        </div>
+                    </div>
+                </div>             
             </div>
     </div>
