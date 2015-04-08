@@ -43,7 +43,7 @@ $cakeDescription = __d('bookabus', 'Book-A-Bus');
 	<div id="master-container">
 		<div id="header">
                     <div class="row">
-                        <div class="navbar navbar-fixed-top nav-bg">
+                        <div class="navbar navbar-fixed-top nav-bg" id="unloggedNavbar">
                             <div class="container">
                                 <div class="navbar-brand"><a><?php echo $this->Html->image('navbar/logo.jpg'); ?></a></div>
                                 <div class="navbar-header">

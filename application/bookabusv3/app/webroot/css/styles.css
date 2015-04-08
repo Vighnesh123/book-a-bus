@@ -351,4 +351,14 @@ p {
   text-align: right;
 }
 
-
+@media screen and (max-width: 600px) {
+    #unloggedNavbar{
+        visibility: hidden;
+    }
+    #loggedNavbarAbout{
+        visibility: hidden;
+    }
+    #loggedNavbarBrowse{
+        visibility: hidden;
+    }
+}
