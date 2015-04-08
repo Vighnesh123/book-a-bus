@@ -11,7 +11,8 @@ function confirmCancel(){
         <div class="col-md-12">
             <div class="col-md-offset-1 col-md-10 data-group">
                 <div class="col-md-12">
-                    <div class="form-group">
+                    <div class="col-md-9">
+                        <div class="form-group">
                         <label class='col-sm-12 control-label'>Reference Number :</label>
                         <div class='col-sm-12 control-label'><?php echo $bookingInfo[0]['Booking']['transaction_code']?></div>
                     </div>
@@ -48,15 +49,23 @@ function confirmCancel(){
                         <div class='col-sm-12 control-label'>
                             <?php echo count($bookingInfo);?>
                         </div>
+                        <br>
+                        <br>
+                    <?php echo $this->Html->link('<< Back to Dashboard', array('controller'=>'Customers', 'action' => '/dashboard'), array('escape'=>false,'title' => "Back To Dashboard", 'id'=> 'toDashBoard')); ?>
                     </div>
-                    <?php echo $this->Html->link($this->Form->button('Button'), array('controller'=>'Customers', 'action' => '/dashboard'), array('escape'=>false,'title' => "Back To Dashboard")); ?>
+                    
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <?php echo $this->Form->create(); ?>
+                        <?php 
+                        foreach ($bookingInfo as $bookingIds){
+                            echo $this->Form->hidden('id.', array('value'=>$bookingIds['Booking']['id'])); 
+                        } ?>
+                        <?php echo $this->Form->submit('Cancel Request', array('onclick'=>'return confirmCancel()', 'id'=>'cancelBtn')); ?>
+                    </div>
                 </div>
-                <?php echo $this->Form->create(); ?>
-                <?php 
-                foreach ($bookingInfo as $bookingIds){
-                    echo $this->Form->hidden('id.', array('value'=>$bookingIds['Booking']['id'])); 
-                } ?>
-                <?php echo $this->Form->submit('Cancel Request', array('onclick'=>'return confirmCancel()')); ?>
+                
             </div>
         </div>
     </div>
