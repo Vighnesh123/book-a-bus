@@ -1,3 +1,8 @@
+$(document).load(function(){
+    var x = isNativeApp();
+    alert(x);
+});
+
 $(window).on('resize load', function() {
     $('body').css({"padding-top": $(".navbar").height() + "px"});
 });
@@ -98,3 +103,7 @@ $(document).ready(function(){
     $("#birthday-picker").datepicker({ dateFormat: 'yy-m-d', yearRange:"-80:+0"});
     $("#lss-date").datepicker({ dateFormat: 'MM d, yy' });
 });
+
+function isNativeApp() {
+    return /book-a-bus\/[0-9\.]+$/.test(navigator.userAgent);
+}
