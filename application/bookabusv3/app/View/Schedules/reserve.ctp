@@ -79,7 +79,7 @@ calculatePrice(<?php echo h($scheduleInfo['Schedule']['fare'])?>);
                             </tr>
                             <tr>
                                 <td colspan="10"><center><label class="seatCheckBox"> Center Hall </label></center></td>
-                                <td><?php echo $this->Form->checkbox('seat_code', array ('value'=> 'AB01', 'id'=>'AB01', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
+                                <td><?php echo $this->Form->checkbox('seat_code.', array ('value'=> 'AB12', 'id'=>'AB12', 'class'=>'seatCheckBox','hiddenField' => false)); ?></td>
 
                             </tr>
                             <tr>
