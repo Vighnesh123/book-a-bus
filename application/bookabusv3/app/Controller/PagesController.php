@@ -46,7 +46,9 @@ class PagesController extends AppController {
  */
 	public function display() {
 		$path = func_get_args();
-
+                if ($this->Auth->user()){
+                    $this->redirect('/dashboard');
+                }
 		$count = count($path);
 		if (!$count) {
 			return $this->redirect('/');
