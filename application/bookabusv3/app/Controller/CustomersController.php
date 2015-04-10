@@ -110,6 +110,9 @@ class CustomersController extends AppController {
         }
         
         public function login() {
+            if ($this->Auth->user()){
+                    $this->redirect('/dashboard');
+            }
             if ($this->request->is('post')) {
                 if ($this->Auth->login()) {
                     return $this->redirect($this->Auth->redirectUrl());
