@@ -14,7 +14,7 @@ public $default = array(
 'host' => 'localhost',
 'login' => 'root',
 'password' => '',
-'database' => 'bookabus',
+'database' => 'bookabusv2',
 'prefix' => '',
 //'encoding' => 'utf8',
 );
