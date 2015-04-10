@@ -29,13 +29,12 @@
                         'before'=>'<div class="input-group-md">',
                         'after' =>'</div>'
                 ));
-                
-                echo $this->Form->submit('buttons/login.png', array('id'=>'login_button','alt'=>'login'));
+                //echo  $this->Form->submit('buttons/login.png', array('id'=>'login_button','alt'=>'login'));
                 echo $this->Form->end();
                 
-                echo $this->Html->link('Forgot password ?', '/Customers/forgot', array('class'=>'forgot'));
+                //echo $this->Html->link('Forgot password ?', '/Customers/forgot', array('class'=>'forgot'));
                 ?>
-                
+                <div class="btn btn-info btn-block">LOGIN</div>
             </div>
             <div class="col-md-1 divider">
                 <?php  echo $this->Html->image('bg/divider.png',array('style'=>'padding-left: 50%;')); ?>
@@ -43,8 +42,7 @@
             <div class="col-md-6 register-group">
                 <?php echo $this->Html->image('text-img/register.png', array('alt'=>'Why register')); ?>
                 <?php echo $this->Html->image('text-img/reg-perks.png', array('alt'=>'Register perks')); ?>
-                <a href='/bookabusv3/register'><?php echo $this->Html->image('buttons/reg.png', array('id'=>'register_button','alt'=>'Register !')); ?></a>
-                ?>
+                <a href='/bookabusv3/register'><?php echo $this->Form->button('REGISTER', array('id'=>'register_button','class'=>'btn btn-info btn-block', 'style'=>'background: none repeat scroll 0% 0% #00a99d;')); ?></a>
             </div>
         </div>
     </div>
