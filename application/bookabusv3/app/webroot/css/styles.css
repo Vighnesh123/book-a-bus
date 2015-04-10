@@ -361,4 +361,8 @@ p {
     #loggedNavbarBrowse{
         visibility: hidden;
     }
+    #divider{
+        visibility: hidden;
+        display: none;
+    }
 }
